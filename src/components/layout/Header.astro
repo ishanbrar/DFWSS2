@@ -35,16 +35,22 @@ import { Icon } from "astro-icon/components";
 				<!-- Logo -->
 				<!--
 				<div class="pt-1.5">
-					<svg class="inline-block size-8 fill-current text-accent-base drop-shadow-[0px_2.5px_2.5px_rgba(0,0,0,0.35)]">
-						<use href="/brand.svg#brand"></use>
-					</svg>
+					<img 
+        src="src/assets/images/DFWSS-2.png" 
+        alt={siteConfig.title} 
+        class="inline-block h-8 w-8 object-contain drop-shadow-[0px_2.5px_2.5px_rgba(0,0,0,0.35)]"
+    />
 				</div>
 				-->
-				<div title={siteConfig.title}>
-					<svg class="inline-block size-8 fill-current text-accent-base dark:text-accent-two drop-shadow-[0px_2.5px_2.5px_rgba(0,0,0,0.35)]">
-						<use href="/brand.svg#citrus"></use>
-					</svg>
-				</div>
+				<!-- filepath: /Users/singhz/Desktop/dfw-sikh-gun-club-website/DFWSS2/src/components/layout/Header.astro -->
+<!-- filepath: /Users/singhz/Desktop/dfw-sikh-gun-club-website/DFWSS2/src/components/layout/Header.astro -->
+<div title={siteConfig.title}>
+    <img 
+        src="/assets/images/DFWSS-2.png" 
+        alt={siteConfig.title} 
+        class="inline-block h-24 w-24 object-contain drop-shadow-[0px_2.5px_2.5px_rgba(0,0,0,0.35)]"
+    />
+</div>
 				
 				<strong class="'max-[320px]:hidden' bg-clip-text text-transparent bg-gradient-to-r from-accent-one to-accent-two hidden xs:block z-10 mb-0.5 ms-2 text-2xl group-hover:text-accent-one">
 					{siteConfig.title}
