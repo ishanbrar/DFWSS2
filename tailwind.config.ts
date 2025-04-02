@@ -97,8 +97,10 @@ export default {
       },
       fontFamily: {
         // Add any custom fonts here
+
         sans: ["SFProRounded", ...fontFamily.sans],
         serif: ["CascadiaCode", ...fontFamily.serif],
+        header: ['Overpass', ...fontFamily.sans],
       },
       transitionProperty: {
         height: "height",
