@@ -7,7 +7,7 @@ import { Icon } from "astro-icon/components";
 
 <site-search class="ms-auto" id="search">
 	<button
-		class="flex h-8 w-8 items-center justify-center rounded-lg drop-shadow-[0px_1.5px_1.5px_rgba(0,0,0,0.175)] hover:text-accent-two"
+		class="flex h-8 w-8 items-center justify-center rounded-sm border border-transparent text-accent-base transition-all duration-200 ease-out hover:border-color-200 hover:bg-color-75 hover:text-accent-one active:scale-[0.98]"
 		data-open-modal
 		disabled
 	>
@@ -16,14 +16,14 @@ import { Icon } from "astro-icon/components";
 
 	<dialog
 		aria-label="search"
-		class="h-full max-h-full w-full max-w-full md:h-fit bg-bgColor backdrop:backdrop-blur-xl md:my-8 md:min-h-[6.5rem] 'md:w-5/6' md:max-w-[44rem] md:rounded-lg overflow-y-hidden"
+		class="h-full max-h-full w-full max-w-full overflow-y-hidden bg-bgColor backdrop:backdrop-blur-xl md:my-8 md:h-fit md:min-h-[6.5rem] 'md:w-5/6' md:max-w-[44rem] md:rounded-sm md:border md:border-color-150 md:shadow-editorial-lg"
 	>	
 		<div class="dialog-frame flex flex-col h-[100%] px-4 pt-4 pb-4 md:px-8 md:py-8 gap-4">
 			<!-- Заголовок и кнопка закрытия -->
 			<div class="md:hidden sticky top-0 z-20 flex items-center justify-between bg-bgColor">
 				<h4 class="title flex items-end font-semibold">Search</h4>
 			 	<button
-					class="flex size-8 cursor-pointer items-center justify-center rounded-lg bg-color-100 text-textColor hover:text-accent-base hover:bg-accent-base/5"
+					class="flex size-8 cursor-pointer items-center justify-center rounded-sm border border-color-200 bg-color-75 text-textColor transition-all duration-200 ease-out hover:border-accent-one/30 hover:bg-color-100 hover:text-accent-base active:scale-[0.98]"
 					data-close-modal
 				>	
 					<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="hugeicons:cancel-01" />
@@ -133,7 +133,7 @@ import { Icon } from "astro-icon/components";
 
 <style is:global>
 	:root {
-		--pagefind-ui-border-radius: 0.5rem; /* 8px */
+		--pagefind-ui-border-radius: 0.125rem;
 	}
 
 	#citrus__search {
@@ -172,7 +172,7 @@ import { Icon } from "astro-icon/components";
 	}
 
 	#citrus__search .pagefind-ui__search-input {
-		@apply bg-color-100 rounded-lg border-none text-base text-textColor font-normal w-full flex h-10 py-0 px-10 outline-none;
+		@apply flex h-10 w-full rounded-sm border border-color-200 bg-special-lighter py-0 px-10 text-base font-normal text-textColor shadow-editorial-inset outline-none transition-all duration-200 ease-out focus:border-accent-one/40 focus:ring-2 focus:ring-accent-one/20;
 	}
 
 	#citrus__search .pagefind-ui__search-input::placeholder {
@@ -207,11 +207,11 @@ import { Icon } from "astro-icon/components";
 	}
 
 	#citrus__search .pagefind-ui__button {
-		@apply absolute bottom-0 m-0 shadow-md border-none text-bgColor flex items-center justify-center rounded-lg h-10 py-0 px-2 text-base text-center font-medium cursor-pointer bg-accent-base;
+		@apply absolute bottom-0 m-0 flex h-10 cursor-pointer items-center justify-center rounded-sm border border-color-200 bg-accent-base py-0 px-2 text-center text-base font-medium text-bgColor shadow-editorial transition-all duration-200 ease-out active:scale-[0.98];
 	}
 
 	#citrus__search .pagefind-ui__button:hover {
-		@apply brightness-110;
+		@apply bg-accent-one;
 	}
 
 	#citrus__search .pagefind-ui__result {

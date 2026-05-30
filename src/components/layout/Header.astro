@@ -7,21 +7,15 @@ import { Icon } from "astro-icon/components";
 
 <header
 	id="main-header"
-	class="fixed px-4 md:px-0 left-0 z-20 flex items-center md:relative top-0 h-16 w-full bg-bgColor md:bg-transparent overflow-hidden"
+	class="fixed left-0 top-0 z-20 flex h-16 w-full items-center overflow-hidden border-b border-color-150/60 bg-bgColor/90 px-4 backdrop-blur-md transition-all duration-200 ease-out md:relative md:border-b-0 md:bg-transparent md:px-0"
 >	
 	<!-- Background 
 			TODO: This approach is not optimal and requires improvements. 
   			- Too many absolutely positioned elements can affect performance. 
   		-->	
-	<div class="md:hidden absolute top-0 left-1/2 -ml-[50vw] w-screen min-h-screen pointer-events-none blur-2xl">
-		<div class="absolute top-[-90%] right-[25%] w-[75%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-		<div class="absolute top-[-90%] left-[25%] w-[75%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-		<div class="absolute top-[-85%] right-[25%] w-[55%] h-full bg-gradient-to-b from-purple-300 via-blue-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-		<div class="absolute top-[-85%] left-[25%] w-[55%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-		<div class="absolute top-[-75%] left-[-25%] w-[65%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-30 dark:opacity-5"></div>
-		<div class="absolute top-[-75%] right-[-25%] w-[65%] h-full bg-gradient-to-b from-purple-300 via-blue-300 to-transparent rounded-full opacity-30 dark:opacity-5"></div>
-		<div class="absolute top-[-85%] left-[-30%] w-[85%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-60 dark:opacity-5"></div>
-		<div class="absolute top-[-85%] right-[-30%] w-[85%] h-full bg-gradient-to-b from-orange-300 via-indigo-300 to-transparent rounded-full opacity-60 dark:opacity-5"></div>
+	<div class="pointer-events-none absolute left-1/2 top-0 -ml-[50vw] min-h-screen w-screen blur-3xl md:hidden" aria-hidden="true">
+		<div class="editorial-gradient-orb absolute top-[-90%] right-[20%] h-full w-[70%] bg-gradient-to-b from-amber-200/70 via-stone-300/30 to-transparent"></div>
+		<div class="editorial-gradient-orb absolute top-[-85%] left-[15%] h-full w-[55%] bg-gradient-to-b from-stone-400/40 to-transparent"></div>
 	</div>
 	
 	<div class="w-full justify-between sm:flex-col">
@@ -48,17 +42,17 @@ import { Icon } from "astro-icon/components";
     <img 
         src="/assets/images/DFWSS-2.png" 
         alt={siteConfig.title} 
-        class="inline-block h-24 w-24 object-contain drop-shadow-[0px_2.5px_2.5px_rgba(0,0,0,0.35)]"
+        class="inline-block h-24 w-24 object-contain drop-shadow-editorial transition-transform duration-200 ease-out group-hover:scale-[1.02]"
     />
 </div>
 				
-				<strong class="'max-[320px]:hidden' bg-clip-text text-transparent bg-gradient-to-r from-accent-one to-accent-two hidden md:block z-10 mb-0.5 ms-2 text-2xl group-hover:text-accent-one font-header">
+				<strong class="'max-[320px]:hidden' z-10 mb-0.5 ms-3 hidden bg-gradient-to-r from-accent-base via-accent-one to-accent-two bg-clip-text font-display text-2xl font-medium tracking-tight text-transparent transition-all duration-200 ease-out group-hover:from-accent-one group-hover:to-accent-two md:block">
     {siteConfig.title}
 </strong>
 			</a>
 			<nav
 				aria-label="Main menu"
-				class="top-20 text-sm mx-auto ml-4 ml-auto hidden flex-col items-end justify-center gap-x-4 rounded-md bg-bgColor font-medium text-accent-two shadow backdrop-blur group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:flex-row sm:items-center sm:rounded-none sm:bg-transparent sm:shadow-none sm:backdrop-blur-none md:flex"
+				class="top-20 mx-auto ml-4 ml-auto hidden flex-col items-end justify-center gap-x-6 rounded-sm bg-bgColor text-sm font-medium tracking-wide text-accent-base shadow-editorial backdrop-blur-md transition-all duration-200 ease-out group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:flex-row sm:items-center sm:rounded-none sm:bg-transparent sm:shadow-none sm:backdrop-blur-none md:flex"
 				id="main-navigation-menu"
 			>	
 				<!--				
@@ -91,7 +85,7 @@ import { Icon } from "astro-icon/components";
 					menuLinks.map((link) => (
 						<a
 							aria-current={Astro.url.pathname === link.path ? "page" : false}
-							class="underline-offset-2 hover:underline"
+							class="underline-offset-4 transition-all duration-200 ease-out hover:text-accent-one hover:underline decoration-accent-one/30"
 							data-astro-prefetch
 							href={link.path}
 						>
@@ -101,7 +95,7 @@ import { Icon } from "astro-icon/components";
 				}
 				
 				<a
-    class="flex h-8 items-center rounded-lg bg-accent-base/5 px-4 text-accent-base underline-offset-2 hover:bg-accent-base/10"
+    class="editorial-btn-ghost flex h-8 items-center px-4 text-accent-base"
     data-astro-prefetch
     href="/contact"  // Changed from "src/pages/contact.astro"
 >
@@ -165,7 +159,7 @@ import { Icon } from "astro-icon/components";
                         href="https://constitution.congress.gov/constitution/amendment-2/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="flex items-center justify-center h-8 rounded-lg hover:bg-accent-base/10"
+                        class="flex h-8 items-center justify-center rounded-sm border border-transparent transition-all duration-200 ease-out hover:border-color-200 hover:bg-color-75 active:scale-[0.98]"
                         aria-label="Second Amendment - US Constitution"
                     >
                         <img 
@@ -182,7 +176,7 @@ import { Icon } from "astro-icon/components";
 				aria-expanded="false"
 				aria-haspopup="menu"
 				aria-label="Open main menu"
-				class="group relative h-8 w-8 rounded-lg bg-color-100 hover:bg-accent-base/10 text-accent-base md:invisible md:hidden"
+                class="group relative h-8 w-8 rounded-sm border border-color-200 bg-color-75 text-accent-base transition-all duration-200 ease-out hover:border-accent-one/30 hover:bg-color-100 active:scale-[0.98] md:invisible md:hidden"
 				id="toggle-nav-menu-mobile"
 				type="button"
 			>
@@ -208,30 +202,20 @@ import { Icon } from "astro-icon/components";
 <div id="drawer" class="fixed inset-0 z-10 hidden" aria-hidden="true">
 	<div
 		id="drawer-body"
-		class="absolute inset-0 -translate-y-full transform bg-bgColor transition-all duration-300 ease-in-out"
+		class="absolute inset-0 -translate-y-full transform border-t border-color-150 bg-bgColor transition-all duration-300 ease-out"
 	>
 		<!-- Background 
 			TODO: This approach is not optimal and requires improvements. 
   			- Too many absolutely positioned elements can affect performance. 
   		-->		
-		<div class="fixed top-0 left-1/2 -ml-[50vw] w-screen pointer-events-none min-h-screen overflow-x-hidden overflow-y-visible blur-2xl">
-				<!--
-				<div class="fixed blur-xl top-0 left-0 w-full h-16 md:h-20 bg-gradient-to-b from-indigo-300 via-purple-300 to-transparent opacity-10 dark:opacity-5"></div>
-				-->
-				<div class="absolute top-[-90%] right-[25%] w-[75%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-				<div class="absolute top-[-90%] left-[25%] w-[75%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-				<div class="absolute top-[-85%] right-[25%] w-[55%] h-full bg-gradient-to-b from-purple-300 via-blue-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-				<div class="absolute top-[-85%] left-[25%] w-[55%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-				<div class="absolute top-[-75%] left-[-25%] w-[65%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-30 dark:opacity-5"></div>
-				<div class="absolute top-[-75%] right-[-25%] w-[65%] h-full bg-gradient-to-b from-purple-300 via-blue-300 to-transparent rounded-full opacity-30 dark:opacity-5"></div>
-				<div class="absolute top-[-85%] left-[-30%] w-[85%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-60 dark:opacity-5"></div>
-				<div class="absolute top-[-85%] right-[-30%] w-[85%] h-full bg-gradient-to-b from-orange-300 via-indigo-300 to-transparent rounded-full opacity-60 dark:opacity-5"></div>
-		
+		<div class="pointer-events-none fixed left-1/2 top-0 -ml-[50vw] min-h-screen w-screen overflow-x-hidden overflow-y-visible blur-3xl" aria-hidden="true">
+				<div class="editorial-gradient-orb absolute top-[-85%] right-[15%] h-full w-[65%] bg-gradient-to-b from-amber-200/60 via-stone-300/25 to-transparent"></div>
+				<div class="editorial-gradient-orb absolute top-[-80%] left-[10%] h-full w-[50%] bg-gradient-to-b from-stone-400/35 to-transparent"></div>
 		</div>	
 		
 		<nav
 			aria-label="Mobile navigation menu"
-			class="text-lg absolute inset-0 flex flex-col items-center justify-center gap-y-4 text-center font-medium text-accent-two"
+			class="absolute inset-0 flex flex-col items-center justify-center gap-y-5 text-center font-display text-xl font-medium tracking-wide text-accent-base"
 			id="nav-menu-mobile"
 		>
 			<!-- Ссылки меню -->
@@ -239,7 +223,7 @@ import { Icon } from "astro-icon/components";
 				menuLinks.map((link) => (
 					<a
 						aria-current={Astro.url.pathname === link.path ? "page" : false}
-						class="underline-offset-2 hover:underline"
+						class="underline-offset-4 transition-all duration-200 ease-out hover:text-accent-one hover:underline decoration-accent-one/30"
 						data-astro-prefetch
 						href={link.path}
 					>
@@ -248,7 +232,7 @@ import { Icon } from "astro-icon/components";
 				))
 			}
 			<a
-				class="flex h-8 items-center rounded-lg bg-accent-base/5 px-4 text-accent-base underline-offset-2 hover:bg-accent-base/10"
+				class="editorial-btn-ghost flex h-8 items-center px-4 text-accent-base"
 				data-astro-prefetch
 				href="/contact"
 			>

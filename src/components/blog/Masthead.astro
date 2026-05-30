@@ -38,7 +38,7 @@ const postSeries = content.data.seriesId
 		postSeries ? (
 			<button
 				id="toggle-panel"
-				class="hidden md:flex mr-2 h-8 w-8 items-center bg-accent-base/10 flex-shrink-0 justify-center rounded-lg text-accent-base hover:brightness-110"
+				class="mr-2 hidden h-8 w-8 flex-shrink-0 items-center justify-center rounded-sm border border-color-200 bg-color-75 text-accent-base transition-all duration-200 ease-out hover:border-accent-one/30 hover:bg-color-100 active:scale-[0.98] md:flex"
 				aria-label="Toggle Series Panel"
 				aria-controls="series-panel"
 			>
@@ -54,7 +54,7 @@ const postSeries = content.data.seriesId
 		!!(content.rendered?.metadata?.headings as unknown[] | undefined)?.length && (
 			<button
 				id="toggle-toc"
-				class="hidden md:flex h-8 w-8 items-center flex-shrink-0 bg-accent-base/10 justify-center rounded-lg text-accent-base hover:brightness-110"
+				class="hidden h-8 w-8 flex-shrink-0 items-center justify-center rounded-sm border border-color-200 bg-color-75 text-accent-base transition-all duration-200 ease-out hover:border-accent-one/30 hover:bg-color-100 active:scale-[0.98] md:flex"
 				aria-label="Table of Contents"
 			>	
 				<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="solar:clipboard-list-bold" />
@@ -85,7 +85,7 @@ const postSeries = content.data.seriesId
 	{
 		content.data.updatedDate && (
 			<Separator type="dot" />
-			<span class="h-[1.75rem] flex items-center flex-shrink-0 rounded-lg bg-accent-two/5 text-accent-two py-1 px-2 text-sm gap-x-1">
+			<span class="flex h-[1.75rem] flex-shrink-0 items-center gap-x-1 rounded-sm border border-color-150 bg-color-75 px-2 py-1 text-sm text-accent-two">
 				Updated:<FormattedDate class="flex flex-shrink-0" date={content.data.updatedDate} dateTimeOptions={dateTimeOptions} />
 			</span>
 		)
@@ -96,7 +96,7 @@ const postSeries = content.data.seriesId
 
 {
 	content.data.coverImage && (
-		<div class="mb-4 mt-2 overflow-auto rounded-lg">
+		<div class="editorial-card mb-4 mt-2 overflow-auto p-0.5">
 			<Image
 				alt={content.data.coverImage.alt}
 				class="object-cover"

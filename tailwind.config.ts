@@ -24,18 +24,19 @@ export default {
       addComponents({
         ".citrus-link": {
           "&:hover": {
-            "@apply underline underline-offset-2": {},
+            "@apply text-accent-one underline underline-offset-4 decoration-accent-one/40 transition-all duration-200 ease-out":
+              {},
           },
-          "@apply no-underline": {},
+          "@apply no-underline text-link transition-colors duration-200 ease-out": {},
         },
         ".title": {
-          "@apply font-semibold text-accent-base": {},
+          "@apply font-display font-medium tracking-tight text-accent-base": {},
         },
         ".data-footnote-backref": {
           "&:hover": {
             "@apply no-underline brightness-110": {},
           },
-          "@apply inline-flex bg-accent-two text-bgColor text-xs h-4 w-4 rounded-sm items-center justify-center":
+          "@apply inline-flex bg-accent-two text-bgColor text-xs h-4 w-4 rounded-sm items-center justify-center transition-all duration-200 ease-out active:scale-[0.98]":
             {},
         },
       });
@@ -96,11 +97,17 @@ export default {
         "special-light": "var(--theme-special-light)",
       },
       fontFamily: {
-        // Add any custom fonts here
-
-        sans: ["SFProRounded", ...fontFamily.sans],
-        serif: ["CascadiaCode", ...fontFamily.serif],
-        header: ['Overpass', ...fontFamily.sans],
+        sans: ['"Plus Jakarta Sans"', ...fontFamily.sans],
+        display: ['"Playfair Display"', ...fontFamily.serif],
+        serif: ["CascadiaCode", ...fontFamily.mono],
+        header: ['"Playfair Display"', ...fontFamily.serif],
+      },
+      boxShadow: {
+        editorial:
+          "0 1px 2px hsl(30deg 20% 20% / 0.04), 0 4px 16px hsl(30deg 20% 20% / 0.06)",
+        "editorial-lg":
+          "0 2px 4px hsl(30deg 20% 20% / 0.05), 0 12px 32px hsl(30deg 20% 20% / 0.1)",
+        "editorial-inset": "inset 0 1px 2px hsl(30deg 20% 20% / 0.06)",
       },
       transitionProperty: {
         height: "height",
@@ -133,11 +140,11 @@ export default {
             },
 
             code: {
-              "@apply px-2 py-1 text-sm rounded-lg bg-color-150": "",
+              "@apply px-2 py-1 text-sm rounded-sm bg-color-150 font-serif": "",
             },
 
             kbd: {
-              "@apply text-textColor bg-special-lighter border-color-100 shadow-[0px_2.5px_0px_rgba(0,0,0,0.25)]":
+              "@apply text-textColor bg-special-lighter border border-color-200 shadow-editorial-inset":
                 "",
             },
             hr: {
@@ -178,7 +185,7 @@ export default {
 
             /* Table */
             table: {
-              "@apply overflow-hidden rounded-lg": "",
+              "@apply overflow-hidden rounded-sm border border-color-150 shadow-editorial": "",
             },
             "tbody tr": {
               borderBottomWidth: "none",
@@ -218,7 +225,7 @@ export default {
             /* Admonitions/Aside */
             ".aside": {
               "--admonition-color": "var(--tw-prose-quotes)",
-              "@apply my-4 p-4 border-s-[0.625rem] rounded-lg border-[--admonition-color]":
+              "@apply my-4 p-4 border-s-[0.625rem] rounded-sm border-[--admonition-color] shadow-editorial":
                 "",
               ".aside-title": {
                 "@apply font-bold text-base flex items-center gap-2 my-0 capitalize text-[--admonition-color]":
