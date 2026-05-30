@@ -5,20 +5,21 @@ const year = new Date().getFullYear();
 ---
 
 <footer
-	class="mt-auto flex w-full flex-col items-center justify-center gap-y-6 border-t border-color-150/80 pb-8 pt-16 text-center align-top text-sm tracking-wide text-lighter sm:flex-row sm:justify-between"
+	class="mt-auto flex w-full flex-col items-center justify-center gap-y-8 border-t border-black/15 px-6 py-16 text-center align-top text-sm tracking-wide text-black sm:flex-row sm:justify-between md:px-16 dark:border-white/10 dark:text-white"
 >
-	<div class="me-0 font-mono text-xs uppercase tracking-[0.2em] text-accent-base sm:me-4">
+	<div class="me-0 font-mono text-xs uppercase tracking-[0.25em] sm:me-4">
 		&copy; {siteConfig.author}
 		{year}.<span class="inline-block">&nbsp;🚀&nbsp;DFW Sikh Shooters</span>
 	</div>
 	<nav
 		aria-label="More on this site"
-		class="flex w-auto justify-between gap-x-8 font-mono text-xs uppercase tracking-[0.15em] text-light md:w-auto"
+		class="flex w-auto justify-between gap-x-10 font-mono text-xs uppercase tracking-[0.25em]"
 	>
 		{
 			menuLinks.map((link) => (
 				<a
-					class="underline-offset-4 transition-all duration-300 ease-out hover:text-accent-one hover:underline decoration-color-300"
+					class="underline-offset-4 transition-all duration-700 hover:underline"
+					style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 					href={link.path}
 				>
 					{link.title}

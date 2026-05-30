@@ -10,36 +10,38 @@ const meta = {
 
 <PageLayout meta={meta}>
 	<SplitPageLayout sectionNumber="04" sectionLabel="Contact" title="Contact Us">
-		<div class="grid grid-cols-1 gap-16 border-t border-color-150/80 py-20 lg:grid-cols-2 lg:py-28" data-reveal>
-			<div>
-				<p class="mb-8 font-mono text-xs uppercase tracking-[0.3em] text-lighter">Inquiry</p>
-				<form class="space-y-6" action="https://formspree.io/f/your-form-id" method="POST">
+		<div
+			class="grid grid-cols-1 gap-0 border-b border-black/15 lg:grid-cols-2 dark:border-white/10"
+			data-reveal
+		>
+			<div class="border-b border-black/15 px-6 py-32 md:px-16 md:py-56 lg:border-b-0 lg:border-r dark:border-white/10">
+				<p class="icomat-label mb-10">Inquiry</p>
+				<form class="space-y-8" action="https://formspree.io/f/your-form-id" method="POST">
 					<div>
-						<label for="name" class="block font-mono text-xs uppercase tracking-wider text-lighter">Full Name</label>
-						<input type="text" name="name" id="name" required class="industrial-input" />
+						<label for="name" class="icomat-label block">Full Name</label>
+						<input type="text" name="name" id="name" required class="icomat-input" />
 					</div>
 
 					<div>
-						<label for="phone" class="block font-mono text-xs uppercase tracking-wider text-lighter"
-							>Phone (Optional)</label
-						>
-						<input type="tel" name="phone" id="phone" class="industrial-input" />
+						<label for="phone" class="icomat-label block">Phone (Optional)</label>
+						<input type="tel" name="phone" id="phone" class="icomat-input" />
 					</div>
 
 					<div>
-						<label for="email" class="block font-mono text-xs uppercase tracking-wider text-lighter">Email</label>
-						<input type="email" name="email" id="email" required class="industrial-input" />
+						<label for="email" class="icomat-label block">Email</label>
+						<input type="email" name="email" id="email" required class="icomat-input" />
 					</div>
 
 					<div>
-						<label for="message" class="block font-mono text-xs uppercase tracking-wider text-lighter">Message</label>
-						<textarea name="message" id="message" rows="4" required class="industrial-input"></textarea>
+						<label for="message" class="icomat-label block">Message</label>
+						<textarea name="message" id="message" rows="4" required class="icomat-input"></textarea>
 					</div>
 
-					<button type="submit" class="industrial-btn-fill group inline-flex">
+					<button type="submit" class="icomat-btn-fill group">
 						<span>Send Message</span>
 						<svg
-							class="ml-2 h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1"
+							class="h-4 w-4 transition-transform duration-700 group-hover:translate-x-3"
+							style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 							viewBox="0 0 16 16"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
@@ -56,36 +58,38 @@ const meta = {
 				</form>
 			</div>
 
-			<div class="space-y-6 lg:border-l lg:border-color-150/80 lg:pl-16">
-				<div>
-					<p class="mb-6 font-mono text-xs uppercase tracking-[0.3em] text-lighter">Connect</p>
-					<h2 class="mb-6 font-display text-2xl font-semibold tracking-tighter text-accent-base">Connect With Us</h2>
-					<div class="space-y-4 font-mono text-sm tracking-wide">
-						<p class="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-2">
-							<span class="text-lighter">Email</span>
-							<a
-								href="mailto:contact@dfwss.com"
-								class="text-accent-base transition-colors duration-300 ease-out hover:text-accent-one"
-							>
-								contact@dfwss.com
-							</a>
-						</p>
-						<p class="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-2">
-							<span class="text-lighter">Instagram</span>
-							<a
-								href="https://instagram.com/dfwsikhshooters"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="text-accent-base transition-colors duration-300 ease-out hover:text-accent-one"
-							>
-								@dfwsikhshooters
-							</a>
-						</p>
-						<p class="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-2">
-							<span class="text-lighter">Location</span>
-							<span class="text-textColor">Dallas-Fort Worth Metroplex, Texas</span>
-						</p>
-					</div>
+			<div class="px-6 py-32 md:px-16 md:py-56">
+				<p class="icomat-label mb-10">Connect</p>
+				<h2 class="mb-10 font-display text-3xl font-black uppercase tracking-tighter text-black dark:text-white">
+					Connect With Us
+				</h2>
+				<div class="space-y-6 font-mono text-xs uppercase tracking-[0.25em]">
+					<p class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+						<span>Email</span>
+						<a
+							href="mailto:contact@dfwss.com"
+							class="normal-case tracking-normal transition-all duration-700 hover:underline"
+							style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
+						>
+							contact@dfwss.com
+						</a>
+					</p>
+					<p class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+						<span>Instagram</span>
+						<a
+							href="https://instagram.com/dfwsikhshooters"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="normal-case tracking-normal transition-all duration-700 hover:underline"
+							style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
+						>
+							@dfwsikhshooters
+						</a>
+					</p>
+					<p class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+						<span>Location</span>
+						<span class="normal-case tracking-normal">Dallas-Fort Worth Metroplex, Texas</span>
+					</p>
 				</div>
 			</div>
 		</div>

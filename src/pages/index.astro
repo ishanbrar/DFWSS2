@@ -20,59 +20,66 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 ---
 
 <PageLayout meta={{ title: "Home" }}>
-	<section class="group relative -mx-5 mb-8 min-h-[92vh] overflow-hidden md:-mx-12 lg:-mx-16">
+	<section class="group relative min-h-screen overflow-hidden border-b border-black/15 dark:border-white/10">
 		<IndustrialHeroVisual
 			src="/assets/images/industrial/hero-rifle.jpg"
 			alt="Modern tactical platform — industrial studio presentation"
 		/>
 
-		<div class="relative grid min-h-[92vh] gap-16 py-24 md:py-32 lg:grid-cols-12 lg:gap-20 lg:py-40">
-			<div class="flex flex-col justify-end px-5 md:px-0 lg:col-span-5 lg:sticky lg:top-28 lg:self-start" data-reveal>
-				<p class="mb-8 font-mono text-xs uppercase tracking-[0.35em] text-lighter">01 / Foundation</p>
-				<h1
-					class="animate-industrial-hero font-display text-4xl font-semibold leading-[0.95] tracking-tighter text-accent-base sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
-				>
-					<span
-						class="bg-gradient-to-br from-accent-base via-accent-one to-accent-two bg-clip-text text-transparent"
-					>
+		<div
+			class="relative grid min-h-screen w-full grid-cols-1 gap-0 lg:grid-cols-12"
+		>
+			<div
+				class="flex flex-col justify-between border-b border-black/15 px-6 py-32 md:px-16 md:py-56 lg:col-span-5 lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r dark:border-white/10"
+				data-reveal
+			>
+				<div>
+					<p class="icomat-label mb-12">01 / Foundation</p>
+					<h1 class="animate-icomat-hero icomat-display">
 						ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖਾਲਸਾ । ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫਤਹਿ ।
-					</span>
-				</h1>
-				<p class="mt-6 font-mono text-sm tracking-wide text-lighter md:text-base">
-					Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh
-				</p>
-				<div class="mt-12 hidden h-px w-full max-w-xs bg-color-200 lg:block" aria-hidden="true"></div>
+					</h1>
+					<p class="mt-8 font-mono text-xs uppercase tracking-[0.25em] text-black dark:text-white">
+						Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh
+					</p>
+				</div>
+				<div class="mt-16 hidden h-px w-full bg-black/15 dark:bg-white/10 lg:block" aria-hidden="true"></div>
 			</div>
 
-			<div class="flex flex-col justify-center space-y-12 px-5 md:px-0 lg:col-span-7" data-reveal>
-				<div class="industrial-glass p-8 md:p-10">
-					<p class="text-lg leading-relaxed tracking-wide text-textColor/90">
+			<div
+				class="flex flex-col justify-center space-y-0 lg:col-span-7"
+				data-reveal
+			>
+				<div class="icomat-border-b px-6 py-32 md:px-16 md:py-56">
+					<p class="font-sans text-lg leading-relaxed tracking-wide text-black dark:text-white">
 						In Sikhi, the sword (ਕ੍ਰਿਪਾਨ) holds deep spiritual and temporal significance. It represents divine
 						power, dignity, self-respect, and the Sikh commitment to defend the defenseless. As one of the Five
 						Ks, it serves as a constant reminder of our responsibility to uphold justice and righteousness.
 					</p>
 				</div>
 
-				<blockquote class="industrial-card border-l border-color-300 py-6 pl-8 pr-6 italic">
+				<blockquote class="icomat-border-b icomat-quote px-6 py-32 md:px-16 md:py-56">
 					"ਨਾਮੁ ਤਲਵਾਰੁ ਪੀਤੰਬਰੁ ਢਾਲਾ ॥<br />
 					ਸਗਲ ਸੂਟੁ ਹਮਾਰਾ ॥"
 					<br />
-					<span class="mt-3 block font-mono text-xs not-italic tracking-wide text-lighter">
+					<span class="mt-6 block font-mono text-xs not-italic uppercase tracking-[0.25em] text-black dark:text-white">
 						"The Name is my sword; the Lord, my shield.<br />
 						The entire body is my armor."<br />
 						- Sri Guru Granth Sahib Ji (Ang 1072)
 					</span>
 				</blockquote>
 
-				<div class="industrial-visual-frame relative overflow-hidden">
-					<img
-						src="/assets/images/DFWSS-2.png"
-						alt="Kirpan - Sikh ceremonial sword"
-						class="mx-auto w-full max-w-md object-contain p-8 transition-transform duration-300 ease-out hover:scale-[1.01]"
-					/>
+				<div class="icomat-border-b px-6 py-32 md:px-16 md:py-56">
+					<div class="icomat-zoom-wrap group relative mx-auto aspect-[4/3] max-w-lg overflow-hidden border border-black/15 dark:border-white/10">
+						<img
+							src="/assets/images/DFWSS-2.png"
+							alt="Kirpan - Sikh ceremonial sword"
+							class="icomat-zoom-target mx-auto w-full max-w-md object-contain p-12"
+						/>
+						<div class="icomat-spotlight pointer-events-none absolute inset-0 dark:icomat-spotlight-dark"></div>
+					</div>
 				</div>
 
-				<div class="flex justify-start">
+				<div class="px-6 py-32 md:px-16 md:py-56">
 					<IndustrialCta href="/why/" label="Learn More" />
 				</div>
 			</div>

@@ -9,30 +9,30 @@ interface Props {
 const { sectionLabel, sectionNumber, title, subtitle } = Astro.props;
 ---
 
-<div class="grid gap-16 py-24 lg:grid-cols-12 lg:gap-20 lg:py-40">
+<div class="icomat-border-b grid w-full grid-cols-1 lg:grid-cols-12">
 	<aside
-		class="lg:col-span-4 lg:sticky lg:top-28 lg:self-start"
+		class="flex flex-col justify-between border-b border-black/15 px-6 py-32 md:px-16 md:py-56 lg:col-span-4 lg:sticky lg:top-0 lg:h-screen lg:self-start lg:border-b-0 lg:border-r dark:border-white/10"
 		data-reveal
 	>
-		{
-			sectionNumber && (
-				<p class="mb-6 font-mono text-xs uppercase tracking-[0.35em] text-lighter">
-					{sectionNumber}
-					{sectionLabel && <span class="text-color-400"> / {sectionLabel}</span>}
-				</p>
-			)
-		}
-		<h1 class="font-display text-4xl font-semibold leading-[0.95] tracking-tighter text-accent-base md:text-5xl lg:text-6xl">
-			{title}
-		</h1>
-		{
-			subtitle && (
-				<p class="mt-6 max-w-sm font-mono text-sm leading-relaxed tracking-wide text-lighter">
-					{subtitle}
-				</p>
-			)
-		}
-		<div class="mt-10 hidden h-px w-full max-w-xs bg-color-200 lg:block"></div>
+		<div>
+			{
+				sectionNumber && (
+					<p class="icomat-label mb-10">
+						{sectionNumber}
+						{sectionLabel && <> / {sectionLabel}</>}
+					</p>
+				)
+			}
+			<h1 class="icomat-display">{title}</h1>
+			{
+				subtitle && (
+					<p class="mt-10 max-w-md font-sans text-base leading-relaxed tracking-wide text-black dark:text-white">
+						{subtitle}
+					</p>
+				)
+			}
+		</div>
+		<div class="mt-16 hidden h-px w-full bg-black/15 dark:bg-white/10 lg:block" aria-hidden="true"></div>
 		<slot name="aside" />
 	</aside>
 	<div class="lg:col-span-8">

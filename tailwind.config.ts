@@ -24,20 +24,24 @@ export default {
       addComponents({
         ".citrus-link": {
           "&:hover": {
-            "@apply text-accent-one underline underline-offset-4 decoration-accent-one/40 transition-all duration-300 ease-out":
+            "@apply underline underline-offset-4 decoration-black/30 transition-all duration-700 dark:decoration-white/30":
               {},
           },
-          "@apply no-underline text-link transition-colors duration-300 ease-out": {},
+          "@apply no-underline text-black transition-all duration-700 dark:text-white":
+            {},
+          transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
         },
         ".title": {
-          "@apply font-display font-semibold tracking-tighter text-accent-base": {},
+          "@apply font-display font-black uppercase tracking-tighter text-black dark:text-white":
+            {},
         },
         ".data-footnote-backref": {
           "&:hover": {
             "@apply no-underline brightness-110": {},
           },
-          "@apply inline-flex bg-accent-two text-bgColor text-xs h-4 w-4 rounded-sm items-center justify-center transition-all duration-300 ease-out active:scale-[0.98]":
+          "@apply inline-flex bg-black text-white text-xs h-4 w-4 rounded-none items-center justify-center transition-all duration-700 active:scale-[0.99] dark:bg-white dark:text-black":
             {},
+          transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
         },
       });
     }),
@@ -103,17 +107,17 @@ export default {
         serif: ["CascadiaCode", ...fontFamily.mono],
         header: ['"Syne"', ...fontFamily.sans],
       },
+      transitionTimingFunction: {
+        icomat: "cubic-bezier(0.16, 1, 0.3, 1)",
+      },
       boxShadow: {
-        industrial:
-          "0 1px 0 hsl(var(--theme-fg) / 0.06), 0 8px 24px hsl(var(--theme-fg) / 0.08)",
-        "industrial-lg":
-          "0 2px 0 hsl(var(--theme-fg) / 0.08), 0 20px 48px hsl(var(--theme-fg) / 0.12)",
-        "industrial-inset": "inset 0 1px 2px hsl(var(--theme-fg) / 0.06)",
-        editorial:
-          "0 1px 0 hsl(var(--theme-fg) / 0.06), 0 8px 24px hsl(var(--theme-fg) / 0.08)",
-        "editorial-lg":
-          "0 2px 0 hsl(var(--theme-fg) / 0.08), 0 20px 48px hsl(var(--theme-fg) / 0.12)",
-        "editorial-inset": "inset 0 1px 2px hsl(var(--theme-fg) / 0.06)",
+        none: "none",
+        industrial: "none",
+        "industrial-lg": "none",
+        "industrial-inset": "none",
+        editorial: "none",
+        "editorial-lg": "none",
+        "editorial-inset": "none",
       },
       transitionProperty: {
         height: "height",
@@ -146,15 +150,15 @@ export default {
             },
 
             code: {
-              "@apply px-2 py-1 text-sm rounded-sm bg-color-150 font-serif": "",
+              "@apply px-2 py-1 text-sm rounded-none bg-black/5 font-serif dark:bg-white/10": "",
             },
 
             kbd: {
-              "@apply text-textColor bg-special-lighter border border-color-200 shadow-industrial-inset":
+              "@apply text-black bg-transparent border border-black/15 dark:text-white dark:border-white/10":
                 "",
             },
             hr: {
-              "@apply border-t border-solid border-color-200": "",
+              "@apply border-t border-solid border-black/15 dark:border-white/10": "",
             },
             strong: {
               fontWeight: "700",
@@ -191,7 +195,7 @@ export default {
 
             /* Table */
             table: {
-              "@apply overflow-hidden rounded-sm border border-color-150 shadow-industrial": "",
+              "@apply overflow-hidden rounded-none border border-black/15 dark:border-white/10": "",
             },
             "tbody tr": {
               borderBottomWidth: "none",
@@ -231,7 +235,7 @@ export default {
             /* Admonitions/Aside */
             ".aside": {
               "--admonition-color": "var(--tw-prose-quotes)",
-              "@apply my-4 p-4 border-s-[0.625rem] rounded-sm border-[--admonition-color] shadow-industrial":
+              "@apply my-4 p-4 border-s-[0.625rem] rounded-none border-[--admonition-color]":
                 "",
               ".aside-title": {
                 "@apply font-bold text-base flex items-center gap-2 my-0 capitalize text-[--admonition-color]":
@@ -299,14 +303,13 @@ export default {
         },
         citrus: {
           css: {
-            "--tw-prose-body": theme("colors.textColor / 1"),
-            "--tw-prose-bold": theme("colors.textColor / 1"),
-            "--tw-prose-bullets": theme("colors.textColor / 1"),
-            "--tw-prose-code": theme("colors.accent / 1"),
-            "--tw-prose-headings": theme("colors.accent-base / 1"),
-            // "--tw-prose-hr": "0.5px dashed #666",
-            "--tw-prose-links": theme("colors.link / 1"),
-            "--tw-prose-quotes": theme("colors.quote / 1"),
+            "--tw-prose-body": "hsl(0 0% 0%)",
+            "--tw-prose-bold": "hsl(0 0% 0%)",
+            "--tw-prose-bullets": "hsl(0 0% 0%)",
+            "--tw-prose-code": "hsl(0 0% 0%)",
+            "--tw-prose-headings": "hsl(0 0% 0%)",
+            "--tw-prose-links": "hsl(0 0% 0%)",
+            "--tw-prose-quotes": "hsl(0 0% 0%)",
             // "--tw-prose-th-borders": "#666",
             "code::before": { content: "none" },
             "code::after": { content: "none" },

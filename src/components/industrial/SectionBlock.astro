@@ -9,28 +9,34 @@ interface Props {
 const { number, visualSrc, visualAlt = "", class: className = "" } = Astro.props;
 ---
 
-<section class={`border-t border-color-150/80 py-20 first:border-t-0 first:pt-0 lg:py-28 ${className}`} data-reveal>
-	<div class="mb-10 flex items-end justify-between gap-8">
-		<p class="font-mono text-5xl font-light leading-none tracking-tighter text-color-200 md:text-7xl lg:text-8xl">
+<section
+	class={`icomat-border-b px-6 py-32 first:border-t-0 md:px-16 md:py-56 ${className}`}
+	data-reveal
+>
+	<div class="mb-12 flex items-end justify-between gap-8 border-b border-black/15 pb-8 dark:border-white/10">
+		<p class="font-mono text-6xl font-light leading-none tracking-tighter text-black md:text-8xl lg:text-9xl dark:text-white">
 			{number}
 		</p>
-		<div class="hidden h-px flex-1 bg-color-150 md:block" aria-hidden="true"></div>
+		<div class="hidden h-px flex-1 bg-black/15 dark:bg-white/10 md:block" aria-hidden="true"></div>
 	</div>
 	{
 		visualSrc && (
-			<div class="industrial-visual-frame group relative mb-12 aspect-[16/9] max-h-[22rem] overflow-hidden rounded-sm">
-				<img
-					src={visualSrc}
-					alt={visualAlt}
-					class="h-full w-full object-cover object-center mix-blend-luminosity opacity-50 transition-all duration-300 ease-out group-hover:opacity-75"
-					loading="lazy"
-					decoding="async"
-				/>
-				<div class="absolute inset-0 bg-gradient-to-t from-bgColor/80 via-transparent to-transparent"></div>
+			<div class="group relative mb-16 aspect-[16/10] max-h-[28rem] w-full overflow-hidden border border-black/15 dark:border-white/10">
+				<div class="icomat-zoom-wrap absolute inset-0">
+					<img
+						src={visualSrc}
+						alt={visualAlt}
+						class="icomat-zoom-target absolute inset-0 h-full w-full object-cover object-center mix-blend-luminosity opacity-50 dark:opacity-40"
+						loading="lazy"
+						decoding="async"
+					/>
+				</div>
+				<div class="icomat-spotlight pointer-events-none absolute inset-0 dark:icomat-spotlight-dark" />
+				<div class="pointer-events-none absolute inset-0 bg-black/20 dark:bg-black/40" />
 			</div>
 		)
 	}
-	<div class="prose prose-citrus max-w-none">
+	<div class="prose prose-citrus max-w-none dark:prose-invert">
 		<slot />
 	</div>
 </section>

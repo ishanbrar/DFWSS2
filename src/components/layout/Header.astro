@@ -7,17 +7,11 @@ import { Icon } from "astro-icon/components";
 
 <header
 	id="main-header"
-	class="fixed left-0 top-0 z-20 flex h-20 w-full items-center overflow-hidden border-b border-color-150/50 bg-bgColor/80 px-4 backdrop-blur-md transition-all duration-300 ease-out md:relative md:h-auto md:border-b md:border-color-150/60 md:bg-transparent md:px-0"
+	class="fixed left-0 top-0 z-20 flex h-20 w-full items-center overflow-hidden border-b border-black/15 bg-bgColor px-6 transition-all duration-700 md:relative md:h-auto md:px-16 dark:border-white/10"
+	style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 >
-	<div class="pointer-events-none absolute left-1/2 top-0 -ml-[50vw] min-h-screen w-screen md:hidden" aria-hidden="true">
-		<div
-			class="industrial-gradient-orb absolute top-[-90%] right-[10%] h-full w-[65%] bg-gradient-to-b from-color-150/50 to-transparent"
-		>
-		</div>
-	</div>
-
 	<div class="w-full justify-between sm:flex-col">
-		<div class="flex items-center gap-x-4">
+		<div class="flex items-center gap-x-6">
 			<a
 				aria-label={siteConfig.title}
 				aria-current={Astro.url.pathname === "/" ? "page" : false}
@@ -28,26 +22,30 @@ import { Icon } from "astro-icon/components";
 					<img
 						src="/assets/images/DFWSS-2.png"
 						alt={siteConfig.title}
-						class="inline-block h-20 w-20 object-contain drop-shadow-industrial transition-transform duration-300 ease-out group-hover:scale-[1.02] md:h-24 md:w-24"
+						class="inline-block h-16 w-16 object-contain transition-transform duration-700 group-hover:scale-[1.02] md:h-20 md:w-20"
+						style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 					/>
 				</div>
 
 				<strong
-					class="'max-[320px]:hidden' z-10 mb-0.5 ms-3 hidden font-display text-xl font-semibold tracking-tighter text-accent-base transition-colors duration-300 ease-out group-hover:text-accent-one md:block lg:text-2xl"
+					class="'max-[320px]:hidden' z-10 mb-0.5 ms-4 hidden font-display text-lg font-black uppercase tracking-tighter text-black transition-colors duration-700 group-hover:opacity-70 md:block lg:text-xl dark:text-white"
+					style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 				>
 					{siteConfig.title}
 				</strong>
 			</a>
 			<nav
 				aria-label="Main menu"
-				class="top-20 mx-auto ml-4 ml-auto hidden flex-col items-end justify-center gap-x-8 rounded-sm text-sm font-mono uppercase tracking-[0.15em] text-accent-base transition-all duration-300 ease-out group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:flex-row sm:items-center sm:rounded-none sm:bg-transparent sm:shadow-none sm:backdrop-blur-none md:flex"
+				class="top-20 mx-auto ml-4 ml-auto hidden flex-col items-end justify-center gap-x-10 text-sm font-mono uppercase tracking-[0.25em] text-black transition-all duration-700 group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:flex-row sm:items-center sm:rounded-none sm:bg-transparent sm:shadow-none dark:text-white md:flex"
 				id="main-navigation-menu"
+				style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 			>
 				{
 					menuLinks.map((link) => (
 						<a
 							aria-current={Astro.url.pathname === link.path ? "page" : false}
-							class="underline-offset-4 transition-all duration-300 ease-out hover:text-accent-one hover:underline decoration-color-300"
+							class="underline-offset-4 transition-all duration-700 hover:underline"
+							style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 							data-astro-prefetch
 							href={link.path}
 						>
@@ -56,8 +54,8 @@ import { Icon } from "astro-icon/components";
 					))
 				}
 
-				<a class="industrial-btn-ghost flex h-9 items-center px-4" data-astro-prefetch href="/contact">
-					Contact
+				<a class="icomat-btn-ghost !w-auto !min-w-0 !px-4 !py-2" data-astro-prefetch href="/contact">
+					<span>Contact</span>
 				</a>
 			</nav>
 
@@ -67,13 +65,14 @@ import { Icon } from "astro-icon/components";
 						href="https://constitution.congress.gov/constitution/amendment-2/"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="flex h-8 items-center justify-center rounded-sm border border-transparent transition-all duration-300 ease-out hover:border-color-200 hover:bg-color-75 active:scale-[0.98]"
+						class="flex h-8 items-center justify-center rounded-none border border-transparent transition-all duration-700 hover:border-black/15 active:scale-[0.99] dark:hover:border-white/10"
+						style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 						aria-label="Second Amendment - US Constitution"
 					>
 						<img
 							src="/assets/images/USflag.png"
 							alt="US Flag"
-							class="h-6 w-auto drop-shadow-[0px_1.5px_1.5px_rgba(0,0,0,0.175)]"
+							class="h-6 w-auto"
 						/>
 					</a>
 					<ThemeToggle />
@@ -84,21 +83,24 @@ import { Icon } from "astro-icon/components";
 				aria-expanded="false"
 				aria-haspopup="menu"
 				aria-label="Open main menu"
-				class="group relative h-8 w-8 rounded-sm border border-color-200 bg-color-75/80 text-accent-base backdrop-blur-sm transition-all duration-300 ease-out hover:border-color-300 hover:bg-color-100 active:scale-[0.98] md:invisible md:hidden"
+				class="group relative h-8 w-8 rounded-none border border-black/15 bg-transparent text-black transition-all duration-700 hover:border-black active:scale-[0.99] dark:border-white/10 dark:text-white md:invisible md:hidden"
 				id="toggle-nav-menu-mobile"
 				type="button"
+				style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 			>
 				<Icon
 					id="open-nav-menu-icon"
 					aria-hidden="true"
-					class="absolute start-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 transition-all duration-300"
+					class="absolute start-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 transition-all duration-700"
+					style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 					focusable="false"
 					name="hugeicons:menu-01"
 				/>
 				<Icon
 					id="close-nav-menu-icon"
 					aria-hidden="true"
-					class="absolute start-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-all duration-300"
+					class="absolute start-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-all duration-700"
+					style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 					focusable="false"
 					name="hugeicons:cancel-01"
 				/>
@@ -110,25 +112,20 @@ import { Icon } from "astro-icon/components";
 <div id="drawer" class="fixed inset-0 z-10 hidden" aria-hidden="true">
 	<div
 		id="drawer-body"
-		class="absolute inset-0 -translate-y-full transform border-t border-color-150 bg-bgColor/95 backdrop-blur-lg transition-all duration-300 ease-out"
+		class="absolute inset-0 -translate-y-full transform border-t border-black/15 bg-bgColor transition-all duration-700 dark:border-white/10"
+		style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 	>
-		<div class="pointer-events-none fixed left-1/2 top-0 -ml-[50vw] min-h-screen w-screen overflow-x-hidden" aria-hidden="true">
-			<div
-				class="industrial-gradient-orb absolute top-[-85%] right-[15%] h-full w-[65%] bg-gradient-to-b from-color-150/40 to-transparent"
-			>
-			</div>
-		</div>
-
 		<nav
 			aria-label="Mobile navigation menu"
-			class="absolute inset-0 flex flex-col items-center justify-center gap-y-8 text-center font-display text-2xl font-semibold tracking-tighter text-accent-base"
+			class="absolute inset-0 flex flex-col items-center justify-center gap-y-10 text-center font-display text-2xl font-black uppercase tracking-tighter text-black dark:text-white"
 			id="nav-menu-mobile"
 		>
 			{
 				menuLinks.map((link) => (
 					<a
 						aria-current={Astro.url.pathname === link.path ? "page" : false}
-						class="font-mono text-sm uppercase tracking-[0.2em] underline-offset-4 transition-all duration-300 ease-out hover:text-accent-one hover:underline"
+						class="font-mono text-xs uppercase tracking-[0.25em] underline-offset-4 transition-all duration-700 hover:underline"
+						style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
 						data-astro-prefetch
 						href={link.path}
 					>
@@ -136,7 +133,9 @@ import { Icon } from "astro-icon/components";
 					</a>
 				))
 			}
-			<a class="industrial-btn-ghost px-6" data-astro-prefetch href="/contact"> Contact </a>
+			<a class="icomat-btn !w-auto" data-astro-prefetch href="/contact">
+				<span>Contact</span>
+			</a>
 		</nav>
 	</div>
 </div>
@@ -168,7 +167,7 @@ import { Icon } from "astro-icon/components";
 
 				setTimeout(() => {
 					drawer.classList.add("hidden");
-				}, 300);
+				}, 700);
 
 				openMenuIcon.classList.add("scale-100", "opacity-100");
 				closeMenuIcon.classList.add("scale-0", "opacity-0");

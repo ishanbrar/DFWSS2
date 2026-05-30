@@ -9,19 +9,19 @@ const { src, alt, class: className = "" } = Astro.props;
 ---
 
 <div class={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden="true">
-	<img
-		src={src}
-		alt=""
-		class="absolute inset-0 h-full w-full object-cover object-center mix-blend-luminosity opacity-40 transition-opacity duration-700 ease-out group-hover:opacity-70 dark:opacity-30 dark:group-hover:opacity-55"
-		loading="eager"
-		decoding="async"
-	/>
-	<div
-		class="absolute inset-0 bg-gradient-to-br from-bgColor/85 via-bgColor/70 to-bgColor/90 dark:from-bgColor/92 dark:via-bgColor/80 dark:to-bgColor/95"
-	>
+	<div class="icomat-zoom-wrap absolute inset-0">
+		<img
+			src={src}
+			alt=""
+			class="icomat-zoom-target absolute inset-0 h-full w-full object-cover object-center mix-blend-luminosity opacity-40 transition-opacity duration-700 group-hover:opacity-70 dark:opacity-35 dark:group-hover:opacity-60"
+			style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
+			loading="eager"
+			decoding="async"
+		/>
 	</div>
+	<div class="icomat-spotlight pointer-events-none absolute inset-0 dark:icomat-spotlight-dark"></div>
 	<div
-		class="industrial-satin absolute inset-0 opacity-60 mix-blend-overlay dark:opacity-40"
+		class="pointer-events-none absolute inset-0 bg-gradient-to-b from-bgColor/90 via-bgColor/75 to-bgColor dark:from-bgColor/95 dark:via-bgColor/85 dark:to-bgColor"
 	>
 	</div>
 </div>
