@@ -1,88 +1,379 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import IndustrialCta from "@/components/industrial/IndustrialCta.astro";
-import IndustrialHeroVisual from "@/components/industrial/IndustrialHeroVisual.astro";
-import { getAllPosts } from "@/data/post";
-import PageLayout from "@/layouts/Base.astro";
-import { collectionDateSort } from "@/utils/date";
-
-// Posts
-const MAX_POSTS = 10;
-const allPosts = await getAllPosts();
-const allPostsByDate = allPosts
-	.sort(collectionDateSort)
-	.slice(0, MAX_POSTS) as CollectionEntry<"post">[];
-
-// Notes
-const MAX_NOTES = 2;
-const allNotes = await getCollection("note");
-const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
+import IcomatLayout from "@/layouts/Icomat.astro";
 ---
 
-<PageLayout meta={{ title: "Home" }}>
-	<section class="group relative min-h-screen overflow-hidden border-b border-black/15 dark:border-white/10">
-		<IndustrialHeroVisual
-			src="/assets/images/industrial/hero-rifle.jpg"
-			alt="Modern tactical platform — industrial studio presentation"
-		/>
+<IcomatLayout meta={{ title: "Home", description: "DFW Sikh Shooters — Tyar Bar Tyar" }}>
+	<!-- Hero: full-viewport cinematic image (ICOMAT solutions hero) -->
+	<section class="ic-hero">
+		<div class="ic-hero__media">
+			<img
+				src="/assets/images/industrial/hero-rifle.jpg"
+				alt="Modern tactical platform — industrial studio presentation"
+				width="1920"
+				height="1080"
+				fetchpriority="high"
+			/>
+		</div>
+		<div class="ic-hero__spotlight" aria-hidden="true"></div>
+	</section>
 
-		<div
-			class="relative grid min-h-screen w-full grid-cols-1 gap-0 lg:grid-cols-12"
-		>
-			<div
-				class="flex flex-col justify-between border-b border-black/15 px-6 py-32 md:px-16 md:py-56 lg:col-span-5 lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r dark:border-white/10"
-				data-reveal
-			>
-				<div>
-					<p class="icomat-label mb-12">01 / Foundation</p>
-					<h1 class="animate-icomat-hero icomat-display">
-						ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖਾਲਸਾ । ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫਤਹਿ ।
-					</h1>
-					<p class="mt-8 font-mono text-xs uppercase tracking-[0.25em] text-black dark:text-white">
-						Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh
-					</p>
-				</div>
-				<div class="mt-16 hidden h-px w-full bg-black/15 dark:bg-white/10 lg:block" aria-hidden="true"></div>
+	<!-- Hero text: split headline + intro (ICOMAT HeroText) -->
+	<section class="ic-hero-text ic-reveal">
+		<div>
+			<h1>ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖਾਲਸਾ । ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫਤਹਿ ।</h1>
+			<p class="ic-hero-text__sub" style="margin-top: 1rem;">Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh</p>
+		</div>
+		<p class="ic-hero-text__sub">
+			In Sikhi, the sword (ਕ੍ਰਿਪਾਨ) holds deep spiritual and temporal significance. It represents divine power,
+			dignity, self-respect, and the Sikh commitment to defend the defenseless. As one of the Five Ks, it serves as a
+			constant reminder of our responsibility to uphold justice and righteousness.
+		</p>
+	</section>
+
+	<div class="ic-space" style="--space-mobile: 100; --space-desktop: 200"></div>
+
+	<!-- Two column: Prove Fast / process copy -->
+	<section class="ic-two-col ic-two-col--light ic-reveal">
+		<div class="ic-two-col__inner">
+			<div class="ic-two-col__left">
+				<h3>
+					Contemporary platforms.<br />
+					Ancestral discipline.<br />
+					Unchanged principles.
+				</h3>
 			</div>
+			<div class="ic-two-col__right">
+				<p>
+					In the modern era, the Sikh principle of being "Tyar Bar Tyar" (Ready at all times) remains as relevant as
+					ever. Here's why weapons training continues to be an essential part of the Sikh way of life:
+				</p>
+				<br />
+				<p>
+					History has shown that evil does not rest, and the only way to prevent suffering at the hands of tyrants is to
+					maintain the highest level of defensive capability legally permitted. This includes modern sporting rifles and
+					similar platforms - if those who wish harm can access such tools, it is our duty to be equally prepared to
+					defend the innocent.
+				</p>
+				<br />
+				<p>
+					Remember that Guru Gobind Singh Ji equipped the Khalsa with the most advanced arms available in their time.
+					Today, we honor that tradition by maintaining proficiency with modern defensive tools while upholding the same
+					principles of restraint, discipline, and righteousness.
+				</p>
+			</div>
+		</div>
+	</section>
 
-			<div
-				class="flex flex-col justify-center space-y-0 lg:col-span-7"
-				data-reveal
-			>
-				<div class="icomat-border-b px-6 py-32 md:px-16 md:py-56">
-					<p class="font-sans text-lg leading-relaxed tracking-wide text-black dark:text-white">
-						In Sikhi, the sword (ਕ੍ਰਿਪਾਨ) holds deep spiritual and temporal significance. It represents divine
-						power, dignity, self-respect, and the Sikh commitment to defend the defenseless. As one of the Five
-						Ks, it serves as a constant reminder of our responsibility to uphold justice and righteousness.
-					</p>
+	<div class="ic-space" style="--space-mobile: 100; --space-desktop: 200"></div>
+
+	<!-- Video / cinematic section -->
+	<section class="ic-video-section ic-reveal">
+		<div class="ic-video-section__media">
+			<img
+				src="/assets/images/industrial/section-tactical.jpg"
+				alt="Tactical precision — field operations"
+				width="1920"
+				height="1080"
+				loading="lazy"
+			/>
+		</div>
+		<div class="ic-video-section__overlay" aria-hidden="true"></div>
+		<p class="ic-video-section__title">Shastar Vidya &amp; Modern Readiness</p>
+	</section>
+
+	<!-- Sticky center heading: One System. Three Stages. -->
+	<section class="ic-center-heading">
+		<div class="ic-center-heading__sticky">
+			<h2 class="ic-center-heading__ghost" aria-hidden="true">One Path. Three Pillars.</h2>
+			<h2>One Path. Three Pillars.</h2>
+		</div>
+	</section>
+
+	<div class="ic-space" style="--space-mobile: 100; --space-desktop: 200"></div>
+
+	<!-- Two column: system bullets -->
+	<section class="ic-two-col ic-two-col--dark ic-reveal">
+		<div class="ic-two-col__inner">
+			<div class="ic-two-col__left">
+				<h3>Our commitment is a system.</h3>
+			</div>
+			<div class="ic-two-col__right">
+				<ul class="ic-two-col__list">
+					<li>
+						<strong>Religious Duty</strong>
+						<span
+							>Guru Gobind Singh Ji instructed Sikhs to be both Sant (Saints) and Sipahi (Warriors). This dual responsibility
+							continues in the modern world.</span
+						>
+					</li>
+					<li>
+						<strong>Self-Defense</strong>
+						<span
+							>In an increasingly uncertain world, the ability to protect oneself and others is crucial. This aligns with the
+							Sikh principle of standing up against injustice.</span
+						>
+					</li>
+					<li>
+						<strong>Community Protection</strong>
+						<span
+							>Sikhs have historically been defenders of the oppressed. Modern weapons training enables us to continue this
+							sacred duty.</span
+						>
+					</li>
+					<li>
+						<strong>Cultural Preservation</strong>
+						<span
+							>Maintaining proficiency in weapons connects us to our martial heritage and the discipline of Shastar Vidya.</span
+						>
+					</li>
+					<li>
+						<strong>Mental Discipline</strong>
+						<span
+							>Weapons training develops focus, discipline, and mindfulness - qualities essential for both spiritual and
+							worldly success.</span
+						>
+					</li>
+					<li>
+						<strong>Physical Fitness</strong>
+						<span
+							>Regular training maintains the body as a temple, following the Sikh principle of keeping the body strong and
+							capable.</span
+						>
+					</li>
+					<li>
+						<strong>Responsibility</strong>
+						<span
+							>Learning proper weapons handling teaches responsibility, safety, and respect for tools of defense.</span
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- Timeline: O1 O2 O3 -->
+	<section class="ic-timeline ic-reveal">
+		<div class="ic-timeline__intro">
+			<h3>ਤਿਆਰ ਬਰ ਤਿਆਰ - Tyar Bar Tyar</h3>
+			<p style="color: var(--color-gray-purple); max-width: 40rem; line-height: 1.55;">
+				Preparedness as sacred duty — editorial structure, unchanged conviction.
+			</p>
+		</div>
+		<div class="ic-timeline__cards">
+			<article class="ic-timeline-card">
+				<p class="ic-timeline-card__label">O1</p>
+				<div class="ic-timeline-card__image">
+					<img
+						src="/assets/images/industrial/section-optics.jpg"
+						alt="Precision optics — technical manufacturing aesthetic"
+						loading="lazy"
+					/>
 				</div>
+				<h4>Why — Sacred Duty</h4>
+				<p>
+					In the modern era, the Sikh principle of being "Tyar Bar Tyar" (Ready at all times) remains as relevant as
+					ever. Weapons training is an essential part of the Sikh way of life.
+				</p>
+			</article>
+			<article class="ic-timeline-card">
+				<p class="ic-timeline-card__label">O2</p>
+				<div class="ic-timeline-card__image">
+					<img
+						src="/assets/images/industrial/hero-rifle-alt.jpg"
+						alt="Modern rifle platform — studio industrial presentation"
+						loading="lazy"
+					/>
+				</div>
+				<h4>How — Modern Arms</h4>
+				<p>
+					Just as our ancestors maintained the most effective weapons of their time, today's Sikhs have a duty to be
+					properly equipped with modern defensive tools.
+				</p>
+			</article>
+			<article class="ic-timeline-card">
+				<p class="ic-timeline-card__label">O3</p>
+				<div class="ic-timeline-card__image">
+					<img
+						src="/assets/images/industrial/section-precision.jpg"
+						alt="Advanced manufacturing — industrial precision"
+						loading="lazy"
+					/>
+				</div>
+				<h4>About — Collective</h4>
+				<p>
+					We are a collective of like-minded Singhs and Kaurs from across the Dallas-Fort Worth metroplex, united by our
+					dedication to maintaining the Khalsa's martial traditions.
+				</p>
+			</article>
+		</div>
+	</section>
 
-				<blockquote class="icomat-border-b icomat-quote px-6 py-32 md:px-16 md:py-56">
+	<!-- Image pair -->
+	<section class="ic-image-pair ic-reveal">
+		<div class="ic-image-pair__item">
+			<img src="/assets/images/industrial/hero-rifle.jpg" alt="Tactical platform" loading="lazy" />
+		</div>
+		<div class="ic-image-pair__item">
+			<img src="/assets/images/industrial/section-tactical.jpg" alt="Field operations" loading="lazy" />
+		</div>
+	</section>
+
+	<div class="ic-space" style="--space-mobile: 100; --space-desktop: 200"></div>
+
+	<!-- Two column: Who we are -->
+	<section class="ic-two-col ic-two-col--light ic-reveal">
+		<div class="ic-two-col__inner">
+			<div class="ic-two-col__left">
+				<h3>DFW Metroplex — Training Hub</h3>
+			</div>
+			<div class="ic-two-col__right">
+				<p>
+					<strong>DFW metroplex provides complete community for Sikhs committed to martial readiness.</strong>
+				</p>
+				<br />
+				<p>
+					We are a collective of like-minded Singhs and Kaurs from across the Dallas-Fort Worth metroplex, united by our
+					dedication to maintaining the Khalsa's martial traditions through modern weapons training. While we attend
+					different Gurdwaras throughout DFW, we come together regularly to train, learn, and grow in our understanding of
+					both traditional Shastar Vidya and contemporary defensive tools.
+				</p>
+				<br />
+				<p>
+					Our members range from experienced marksmen to beginners, but we all share a common understanding: that the
+					responsibility to be armed and trained is inseparable from our Sikhi. We organize regular training sessions,
+					workshops, and educational events focused on responsible firearm ownership, tactical training, and the spiritual
+					aspects of being a warrior-saint in today's world.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<div class="ic-space" style="--space-mobile: 100; --space-desktop: 200"></div>
+
+	<!-- Numbers -->
+	<section class="ic-numbers ic-reveal">
+		<h2>The Foundation</h2>
+		<div class="ic-numbers__grid">
+			<div class="ic-numbers__item">
+				<div class="ic-numbers__label">Five Ks — Sacred articles of faith</div>
+				<div class="ic-numbers__value">5K</div>
+			</div>
+			<div class="ic-numbers__item">
+				<div class="ic-numbers__label">Guru's command — Never without arms</div>
+				<div class="ic-numbers__value">1</div>
+			</div>
+			<div class="ic-numbers__item">
+				<div class="ic-numbers__label">DFW Gurdwaras — United training community</div>
+				<div class="ic-numbers__value">DFW</div>
+			</div>
+			<div class="ic-numbers__item">
+				<div class="ic-numbers__label">Khalsa spirit — One fights many</div>
+				<div class="ic-numbers__value">1:125K</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="ic-space" style="--space-mobile: 100; --space-desktop: 200"></div>
+
+	<!-- Two column: old world vs new -->
+	<section class="ic-two-col ic-two-col--light ic-reveal">
+		<div class="ic-two-col__inner">
+			<div class="ic-two-col__left">
+				<h3>From Complacency to Eternal Vigilance</h3>
+			</div>
+			<div class="ic-two-col__right">
+				<ul class="ic-two-col__list">
+					<li>
+						<strong>The old pattern</strong>
+						<span
+							>No one is coming to save us. Time and again, the mouths we feed at langar have come back to bite us; no
+							amount of community-building saved the Sikhs from the horrors of Partition and 1984. Sikhs can only entrust
+							their protection to themselves, as commanded by the Gurus.</span
+						>
+					</li>
+					<li>
+						<strong>Tyar Bar Tyar</strong>
+						<span
+							>Today's world demands the same vigilance our ancestors maintained. Whether facing targeted violence or
+							protecting the innocent, Sikhs must maintain the highest level of preparedness. This means regular training,
+							maintaining defensive capabilities, and understanding that our ability to defend ourselves and others is a
+							sacred responsibility passed down through generations.</span
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<div class="ic-space" style="--space-mobile: 200; --space-desktop: 300"></div>
+
+	<!-- Banner CTA -->
+	<section class="ic-banner-cta ic-reveal">
+		<h2>The peace we enjoy today is but a temporary illusion.</h2>
+		<a href="/why/" class="ic-cta">
+			<span>Learn More</span>
+			<svg viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+				<path
+					d="M7.65039 0.650024L7.65039 6.65002"
+					stroke="currentColor"
+					stroke-width="1.3"
+					stroke-linecap="round"
+					stroke-linejoin="round"></path>
+				<path
+					d="M1.65039 6.65002L7.65039 0.650024L7.65039 6.65002"
+					stroke="currentColor"
+					stroke-width="1.3"
+					stroke-linecap="round"
+					stroke-linejoin="round"></path>
+			</svg>
+		</a>
+	</section>
+
+	<div class="ic-space" style="--space-mobile: 100; --space-desktop: 200"></div>
+
+	<!-- Hot links -->
+	<section class="ic-hot-links ic-reveal">
+		<a href="/why/" class="ic-hot-link">
+			<img src="/assets/images/industrial/section-tactical.jpg" alt="" loading="lazy" />
+			<span class="ic-hot-link__label">Why</span>
+		</a>
+		<a href="/how/" class="ic-hot-link">
+			<img src="/assets/images/industrial/section-optics.jpg" alt="" loading="lazy" />
+			<span class="ic-hot-link__label">How</span>
+		</a>
+		<a href="/about/" class="ic-hot-link">
+			<img src="/assets/images/industrial/hero-rifle-alt.jpg" alt="" loading="lazy" />
+			<span class="ic-hot-link__label">About</span>
+		</a>
+	</section>
+
+	<!-- Gurbani quote block (from home) -->
+	<section class="ic-two-col ic-two-col--dark ic-reveal" style="margin-top: 0;">
+		<div class="ic-two-col__inner">
+			<div class="ic-two-col__left">
+				<h3>Gurbani</h3>
+			</div>
+			<div class="ic-two-col__right">
+				<p style="font-style: italic; font-size: calc(16 * var(--vr)); line-height: 1.5;">
 					"ਨਾਮੁ ਤਲਵਾਰੁ ਪੀਤੰਬਰੁ ਢਾਲਾ ॥<br />
 					ਸਗਲ ਸੂਟੁ ਹਮਾਰਾ ॥"
-					<br />
-					<span class="mt-6 block font-mono text-xs not-italic uppercase tracking-[0.25em] text-black dark:text-white">
-						"The Name is my sword; the Lord, my shield.<br />
-						The entire body is my armor."<br />
-						- Sri Guru Granth Sahib Ji (Ang 1072)
-					</span>
-				</blockquote>
-
-				<div class="icomat-border-b px-6 py-32 md:px-16 md:py-56">
-					<div class="icomat-zoom-wrap group relative mx-auto aspect-[4/3] max-w-lg overflow-hidden border border-black/15 dark:border-white/10">
-						<img
-							src="/assets/images/DFWSS-2.png"
-							alt="Kirpan - Sikh ceremonial sword"
-							class="icomat-zoom-target mx-auto w-full max-w-md object-contain p-12"
-						/>
-						<div class="icomat-spotlight pointer-events-none absolute inset-0 dark:icomat-spotlight-dark"></div>
-					</div>
-				</div>
-
-				<div class="px-6 py-32 md:px-16 md:py-56">
-					<IndustrialCta href="/why/" label="Learn More" />
+				</p>
+				<br />
+				<p>
+					"The Name is my sword; the Lord, my shield.<br />
+					The entire body is my armor."<br />
+					- Sri Guru Granth Sahib Ji (Ang 1072)
+				</p>
+				<br />
+				<div style="max-width: 28rem; margin-top: 2rem;">
+					<img
+						src="/assets/images/DFWSS-2.png"
+						alt="Kirpan - Sikh ceremonial sword"
+						style="width: 100%; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 4px;"
+						loading="lazy"
+					/>
 				</div>
 			</div>
 		</div>
 	</section>
-</PageLayout>
+</IcomatLayout>

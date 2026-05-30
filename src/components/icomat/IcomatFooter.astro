@@ -1,0 +1,28 @@
+---
+import { menuLinks, siteConfig } from "@/site.config";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="ic-footer">
+	<div class="ic-footer__bg" aria-hidden="true"></div>
+	<div class="ic-footer__content">
+		<div class="ic-footer__brand">
+			<p>Tyar Bar Tyar™</p>
+			<p style="margin-top: 1rem; font-size: 0.85em; opacity: 0.7;">
+				Preparedness as sacred duty — DFW Sikh Shooters
+			</p>
+		</div>
+		<nav class="ic-footer__nav" aria-label="Footer">
+			{
+				menuLinks.map((link) => (
+					<a href={link.path}>{link.title}</a>
+				))
+			}
+			<a href="/contact/">contact</a>
+		</nav>
+		<p class="ic-footer__legal">
+			© {year} {siteConfig.author}. DFW Sikh Shooters.
+		</p>
+	</div>
+</footer>

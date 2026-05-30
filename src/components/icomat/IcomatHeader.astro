@@ -1,0 +1,45 @@
+---
+import { menuLinks, siteConfig } from "@/site.config";
+---
+
+<header class="ic-header">
+	<a href="/" class="ic-logo" aria-label={siteConfig.title}>
+		<img src="/assets/images/DFWSS-2.png" alt="" width="40" height="40" />
+		<span>{siteConfig.title}</span>
+	</a>
+	<button type="button" class="ic-menu-btn" id="ic-menu-btn" aria-expanded="false" aria-controls="ic-nav-overlay">
+		<span class="ic-menu-btn__icon" aria-hidden="true">
+			<span></span>
+			<span></span>
+			<span></span>
+		</span>
+		<span>MENU</span>
+	</button>
+</header>
+
+<nav id="ic-nav-overlay" class="ic-nav-overlay" aria-hidden="true">
+	<div class="ic-nav-overlay__inner">
+		<div>
+			{
+				menuLinks.map((link) => (
+					<a class="ic-nav-link" href={link.path}>
+						{link.title}
+					</a>
+				))
+			}
+			<a class="ic-nav-link" href="/contact/">Contact</a>
+		</div>
+		<div class="ic-nav-contact">
+			<h3>Connect</h3>
+			<p>
+				<a href="mailto:contact@dfwss.com">contact@dfwss.com</a>
+			</p>
+			<p>
+				<a href="https://instagram.com/dfwsikhshooters" target="_blank" rel="noopener noreferrer">
+					@dfwsikhshooters
+				</a>
+			</p>
+			<p>Dallas-Fort Worth Metroplex, Texas</p>
+		</div>
+	</div>
+</nav>

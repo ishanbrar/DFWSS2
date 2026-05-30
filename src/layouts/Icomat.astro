@@ -1,0 +1,82 @@
+---
+import IcomatHead from "@/components/icomat/IcomatHead.astro";
+import IcomatFooter from "@/components/icomat/IcomatFooter.astro";
+import IcomatHeader from "@/components/icomat/IcomatHeader.astro";
+import { siteConfig } from "@/site.config";
+import type { SiteMeta } from "@/types";
+
+interface Props {
+	meta: SiteMeta;
+}
+
+const {
+	meta: { articleDate, description = siteConfig.description, ogImage, title },
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={siteConfig.lang} class="ic-page">
+	<head>
+		<IcomatHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
+	</head>
+	<body>
+		<IcomatHeader />
+		<main>
+			<slot />
+		</main>
+		<IcomatFooter />
+
+		<script is:inline>
+			(() => {
+				const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+				const reveal = () => {
+					document.querySelectorAll(".ic-reveal:not(.is-visible)").forEach((el) => {
+						const rect = el.getBoundingClientRect();
+						if (rect.top < window.innerHeight * 0.92) el.classList.add("is-visible");
+					});
+				};
+				if (reduceMotion) {
+					document.querySelectorAll(".ic-reveal").forEach((el) => el.classList.add("is-visible"));
+				} else {
+					const io = new IntersectionObserver(
+						(entries) => {
+							for (const e of entries) {
+								if (e.isIntersecting) {
+									e.target.classList.add("is-visible");
+									io.unobserve(e.target);
+								}
+							}
+						},
+						{ threshold: 0.08, rootMargin: "0px 0px -5% 0px" },
+					);
+					const observe = () => {
+						document.querySelectorAll(".ic-reveal:not(.is-visible)").forEach((el) => io.observe(el));
+					};
+					observe();
+					document.addEventListener("astro:page-load", observe);
+					window.addEventListener("scroll", reveal, { passive: true });
+					reveal();
+				}
+
+				const menuBtn = document.getElementById("ic-menu-btn");
+				const navOverlay = document.getElementById("ic-nav-overlay");
+				if (menuBtn && navOverlay) {
+					menuBtn.addEventListener("click", () => {
+						const open = navOverlay.classList.toggle("is-open");
+						menuBtn.classList.toggle("is-open", open);
+						menuBtn.setAttribute("aria-expanded", String(open));
+						document.body.style.overflow = open ? "hidden" : "";
+					});
+					navOverlay.querySelectorAll("a").forEach((a) => {
+						a.addEventListener("click", () => {
+							navOverlay.classList.remove("is-open");
+							menuBtn.classList.remove("is-open");
+							menuBtn.setAttribute("aria-expanded", "false");
+							document.body.style.overflow = "";
+						});
+					});
+				}
+			})();
+		</script>
+	</body>
+</html>
