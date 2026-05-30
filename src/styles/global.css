@@ -1,5 +1,5 @@
-/* Editorial Luxury — Playfair Display + Plus Jakarta Sans */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+/* Industrial Tech — Syne + Plus Jakarta Sans + JetBrains Mono */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Syne:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -13,18 +13,18 @@
 	font-display: swap;
 }
 
-@keyframes editorial-reveal {
+@keyframes industrial-reveal {
 	from {
 		opacity: 0;
-		letter-spacing: 0.12em;
+		transform: translateY(20px);
 	}
 	to {
 		opacity: 1;
-		letter-spacing: 0.025em;
+		transform: translateY(0);
 	}
 }
 
-@keyframes editorial-border-crawl {
+@keyframes industrial-shimmer {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -33,29 +33,41 @@
 	}
 }
 
+@keyframes industrial-hero-title {
+	from {
+		opacity: 0;
+		letter-spacing: 0.08em;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		letter-spacing: -0.04em;
+		transform: translateY(0);
+	}
+}
+
 @layer base {
 	:root,
 	:root[data-theme="light"] {
 		color-scheme: light;
 
-		/* Editorial Luxury — warm bone, charcoal, burnished brass */
-		--hue: 38deg;
-		--saturation: 18%;
+		--hue: 220deg;
+		--saturation: 8%;
 
-		--bg-hue: 42deg;
-		--bg-saturation: 22%;
-		--bg-brightness: 95%;
+		--bg-hue: 40deg;
+		--bg-saturation: 10%;
+		--bg-brightness: 97%;
 
-		--theme-accent-base: 30deg 28% 18%;
-		--theme-accent-one: 38deg 42% 38%;
-		--theme-accent-two: 28deg 48% 32%;
+		--theme-accent-base: 220deg 12% 12%;
+		--theme-accent-one: 220deg 8% 28%;
+		--theme-accent-two: 220deg 10% 18%;
 
-		--fg-hue: 30deg;
-		--fg-saturation: 12%;
+		--fg-hue: 220deg;
+		--fg-saturation: 10%;
 		--fg-brightness: 14%;
 		--theme-text: var(--theme-color-500);
 
-		--theme-link: 32deg 45% 32%;
+		--theme-link: 220deg 12% 22%;
 		--theme-accent: var(--theme-color-600);
 		--theme-quote: var(--theme-color-550);
 
@@ -63,12 +75,10 @@
 		--theme-lighter: var(--theme-color-400);
 		--theme-light: var(--theme-color-450);
 
-		--theme-special-lightest: hsl(42deg 18% 99%);
-		--theme-special-lighter: hsl(40deg 16% 96%);
+		--theme-special-lightest: hsl(42deg 12% 99%);
+		--theme-special-lighter: hsl(40deg 8% 97%);
 		--theme-special-light: hsl(var(--theme-bg));
-		--theme-special: var(--theme-color-75);
-		
-		/* Подсветка синтаксиса rehype-pretty-code */
+
 		pre code span {
 			color: var(--shiki-light) !important;
 			font-style: var(--shiki-light-font-style) !important;
@@ -80,24 +90,23 @@
 	:root[data-theme="dark"] {
 		color-scheme: dark;
 
-		/* Editorial Luxury — obsidian, warm cream, champagne gold */
-		--hue: 38deg;
-		--saturation: 14%;
+		--hue: 220deg;
+		--saturation: 6%;
 
-		--bg-hue: 28deg;
-		--bg-saturation: 10%;
-		--bg-brightness: 9%;
+		--bg-hue: 220deg;
+		--bg-saturation: 12%;
+		--bg-brightness: 7%;
 
-		--theme-accent-base: 40deg 22% 88%;
-		--theme-accent-one: 38deg 35% 68%;
-		--theme-accent-two: 32deg 42% 58%;
+		--theme-accent-base: 40deg 8% 94%;
+		--theme-accent-one: 220deg 6% 72%;
+		--theme-accent-two: 220deg 8% 58%;
 
 		--fg-hue: 40deg;
-		--fg-saturation: 18%;
+		--fg-saturation: 10%;
 		--fg-brightness: 94%;
 		--theme-text: var(--theme-color-500);
 
-		--theme-link: 38deg 40% 72%;
+		--theme-link: 220deg 8% 78%;
 		--theme-accent: var(--theme-color-600);
 		--theme-quote: var(--theme-color-550);
 
@@ -108,9 +117,8 @@
 		--theme-special-lightest: var(--theme-color-250);
 		--theme-special-lighter: var(--theme-color-200);
 		--theme-special-light: var(--theme-color-150);
-		--theme-special: hsl(28deg 8% 4% / 0.55);
+		--theme-special: hsl(220deg 14% 4% / 0.65);
 
-		/* Подсветка синтаксиса */
 		pre code span {
 			color: var(--shiki-dark) !important;
 			font-style: var(--shiki-dark-font-style) !important;
@@ -119,33 +127,30 @@
 		}
 	}
 
-	/* Общие переменные */
 	:root {
-		--theme-bg: var(--bg-hue) var(--bg-saturation) var(--bg-brightness); /* Цвет фона */
-		--theme-fg: var(--fg-hue) var(--fg-saturation) var(--fg-brightness); /* Базовый цвет для рассчета градации цветов */
+		--theme-bg: var(--bg-hue) var(--bg-saturation) var(--bg-brightness);
+		--theme-fg: var(--fg-hue) var(--fg-saturation) var(--fg-brightness);
 
-		/* Градации базового цвета для текста и элементов */
-		--theme-color-900: hsl(var(--theme-fg) / 1.0000);
+		--theme-color-900: hsl(var(--theme-fg) / 1);
 		--theme-color-850: hsl(var(--theme-fg) / 0.9675);
 		--theme-color-800: hsl(var(--theme-fg) / 0.935);
-		--theme-color-750: hsl(var(--theme-fg) / 0.880);
+		--theme-color-750: hsl(var(--theme-fg) / 0.88);
 		--theme-color-700: hsl(var(--theme-fg) / 0.825);
 		--theme-color-650: hsl(var(--theme-fg) / 0.785);
 		--theme-color-600: hsl(var(--theme-fg) / 0.745);
 		--theme-color-550: hsl(var(--theme-fg) / 0.675);
 		--theme-color-500: hsl(var(--theme-fg) / 0.605);
-		--theme-color-450: hsl(var(--theme-fg) / 0.500);
+		--theme-color-450: hsl(var(--theme-fg) / 0.5);
 		--theme-color-400: hsl(var(--theme-fg) / 0.395);
-		--theme-color-350: hsl(var(--theme-fg) / 0.290);
+		--theme-color-350: hsl(var(--theme-fg) / 0.29);
 		--theme-color-300: hsl(var(--theme-fg) / 0.185);
-		--theme-color-250: hsl(var(--theme-fg) / 0.150);
+		--theme-color-250: hsl(var(--theme-fg) / 0.15);
 		--theme-color-200: hsl(var(--theme-fg) / 0.115);
-		--theme-color-150: hsl(var(--theme-fg) / 0.080);
+		--theme-color-150: hsl(var(--theme-fg) / 0.08);
 		--theme-color-100: hsl(var(--theme-fg) / 0.045);
 		--theme-color-75: hsl(var(--theme-fg) / 0.03375);
 		--theme-color-50: hsl(var(--theme-fg) / 0.0225);
 
-		/* Переменные подсветки блоков кода rehype-pretty-code */
 		--code-inline-bg: var(--theme-color-150);
 		--code-bg: var(--theme-special);
 		--code-title-bg: var(--theme-color-200);
@@ -156,81 +161,68 @@
 
 	html {
 		@apply leading-relaxed;
-		letter-spacing: 0.01em;
+		letter-spacing: 0.015em;
 	}
 
 	h1 {
-		@apply font-display text-2xl font-medium tracking-tight md:pt-[0.0rem] !important;
+		@apply font-display text-2xl font-semibold tracking-tighter md:pt-0 !important;
 	}
 	h2 {
-		@apply font-display text-xl font-medium tracking-tight md:pt-[0.215rem] !important;
+		@apply font-display text-xl font-semibold tracking-tighter md:pt-[0.215rem] !important;
 	}
 	h3 {
-		@apply font-display text-lg font-medium tracking-tight md:pt-[0.250rem] !important;
+		@apply font-display text-lg font-semibold tracking-tight md:pt-[0.25rem] !important;
 	}
-	h4 {
-		@apply font-display text-base font-medium tracking-tight md:pt-[0.425rem] !important;
-	}
-	h5 {
-		@apply font-display text-base font-medium tracking-tight md:pt-[0.425rem] !important;
-	}
+	h4,
+	h5,
 	h6 {
-		@apply font-display text-base font-medium tracking-tight md:pt-[0.425rem] !important;
+		@apply font-display text-base font-semibold tracking-tight md:pt-[0.425rem] !important;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		@apply min-h-8 h-auto !important;
 	}
-
-	/* Нужно для кнопки копирования кода при отключенном rehype-pretty-code */
-	/*
-	pre {
-		@apply relative;
-	}
-	*/
 }
 
 :root {
-	/* Стиль для блоков кода rehype-pretty-code */
 	figure[data-rehype-pretty-code-figure] {
-		@apply relative m-0 rounded-sm overflow-auto border border-color-150 shadow-editorial;
+		@apply relative m-0 overflow-auto rounded-sm border border-color-150 shadow-industrial;
 
 		figcaption {
 			@apply m-0;
 		}
 
-		/* Стиль для заголовков в блоках кода */
 		[data-rehype-pretty-code-title] {
-			@apply break-words bg-[var(--code-title-bg)] border-b border-bgColor text-textColor px-4 flex items-center text-sm h-10;
+			@apply flex h-10 items-center break-words border-b border-bgColor bg-[var(--code-title-bg)] px-4 text-sm text-textColor;
 
 			& + pre {
-				@apply m-0 rounded-t-none; /* Убираем верхний отступ, если есть заголовок */
-				}
+				@apply m-0 rounded-t-none;
+			}
 		}
 
-		/* Стиль для блоков кода */
 		pre {
-			@apply m-0 static px-0 py-2 max-h-[612px] text-sm;
+			@apply static m-0 max-h-[612px] px-0 py-2 text-sm;
 
-			/* Стиль для содержимого кода */
 			> code {
 				counter-reset: line;
 
-				/* Для блоков с номерами строк */
 				&[data-line-numbers] {
 					> [data-line]::before {
 						counter-increment: line;
 						content: counter(line);
-						@apply mr-4 inline-block w-4 text-right text-lightest;
+						@apply mr-4 inline-block w-4 text-right font-mono text-xs text-lightest;
 					}
 				}
 
-				/* Для каждой строки в блоке кода */
 				> [data-line] {
-					@apply px-4 h-6 bg-transparent flex items-center;
+					@apply flex h-6 items-center bg-transparent px-4;
 				}
 
-				/* Для выделенных строк */
 				[data-highlighted-line] {
 					background-color: var(--code-line-highlight);
 				}
@@ -243,44 +235,20 @@
 					background-color: var(--code-line-diff-remove);
 				}
 
-				/* Для выделенных символов */
 				[data-highlighted-chars] > span {
 					@apply py-[4px];
 				}
-
-				/* Для различий в строках (реализовано выше) */
-				/*
-				.diff {
-					&.add {
-						background-color: var(--code-line-diff-add);
-					}
-					&.remove {
-						background-color: var(--code-line-diff-remove);
-					}
-				}
-				*/
 			}
 		}
 	}
 
-	/* Основной стиль для блока pre */
 	pre {
-		@apply bg-[var(--code-bg)] text-[var(--theme-text)] rounded-sm leading-loose m-0 border border-color-150;
-		/* @apply bg-[var(--code-bg)] text-[var(--theme-accent)] rounded-lg leading-loose m-0; */
+		@apply m-0 rounded-sm border border-color-150 bg-[var(--code-bg)] leading-loose text-[var(--theme-text)];
 	}
 
-	/* Стиль для инлайнового кода (rehype pretty code переопределяет стили в tailwind.config.css) */
 	:not(pre) > code {
-		@apply bg-[var(--code-inline-bg)] px-2 py-1 text-sm rounded-sm font-serif;
+		@apply rounded-sm bg-[var(--code-inline-bg)] px-2 py-1 font-mono text-sm;
 	}
-
-	/* Стиль для кнопки копирования кода rehype-pretty-copy (кнопка реализована отдельно) */
-	/*
-	button.rehype-pretty-copy {
-		@apply absolute top-1 right-1 bg-transparent m-auto size-8 rounded-md p-1 backdrop-blur-none;
-		filter: brightness(var(--brightness)) saturate(0%);
-	}
-	*/
 }
 
 @layer components {
@@ -288,27 +256,100 @@
 		@apply bg-transparent;
 	}
 
+	.industrial-satin {
+		background: linear-gradient(
+			135deg,
+			hsl(var(--theme-fg) / 0.04) 0%,
+			transparent 40%,
+			hsl(var(--theme-fg) / 0.06) 100%
+		);
+	}
+
+	.industrial-metal-sheen {
+		@apply pointer-events-none absolute inset-0;
+		background:
+			radial-gradient(ellipse 80% 50% at 20% 0%, hsl(var(--theme-fg) / 0.06), transparent 55%),
+			radial-gradient(ellipse 60% 40% at 90% 100%, hsl(var(--theme-fg) / 0.04), transparent 50%);
+	}
+
+	.industrial-gradient-orb {
+		@apply rounded-full opacity-[0.12] dark:opacity-[0.05];
+	}
+
+	.industrial-btn {
+		@apply inline-flex items-center justify-center rounded-sm border border-color-300 bg-transparent px-7 py-3 font-mono text-xs uppercase tracking-[0.2em] text-accent-base shadow-none transition-all duration-300 ease-out hover:border-accent-base hover:bg-color-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-color-200 active:scale-[0.98];
+	}
+
+	.industrial-btn-fill {
+		@apply industrial-btn border-accent-base bg-accent-base text-bgColor hover:bg-transparent hover:text-accent-base;
+	}
+
+	.industrial-btn-ghost {
+		@apply inline-flex items-center justify-center rounded-sm border border-color-200 bg-transparent px-5 py-2.5 font-mono text-xs uppercase tracking-[0.18em] text-accent-base transition-all duration-300 ease-out hover:border-color-350 hover:bg-color-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-color-200 active:scale-[0.98];
+	}
+
+	.industrial-card {
+		@apply rounded-sm border border-color-150 bg-special-lighter shadow-industrial backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-color-200 hover:shadow-industrial-lg;
+	}
+
+	.industrial-glass {
+		@apply rounded-sm border border-color-150 bg-color-75 shadow-industrial backdrop-blur-md;
+	}
+
+	.industrial-input {
+		@apply mt-1 block w-full rounded-sm border border-color-200 bg-special-lighter px-3 py-2.5 font-sans text-textColor shadow-industrial-inset backdrop-blur-sm transition-all duration-300 ease-out placeholder:font-mono placeholder:text-xs placeholder:uppercase placeholder:tracking-wider placeholder:text-lighter focus:border-color-350 focus:outline-none focus:ring-2 focus:ring-color-200;
+	}
+
+	.industrial-visual-frame {
+		@apply border border-color-150 shadow-industrial;
+	}
+
+	.animate-industrial-hero {
+		animation: industrial-hero-title 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+	}
+
+	[data-reveal] {
+		opacity: 0;
+		transform: translateY(20px);
+		transition:
+			opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	[data-reveal].is-visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		[data-reveal] {
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
+
+		.animate-industrial-hero {
+			animation: none;
+		}
+	}
+
+	/* Legacy aliases — blog & older markup */
 	.editorial-btn {
-		@apply inline-flex items-center justify-center rounded-sm border border-color-200 bg-accent-one/90 px-6 py-2.5 font-medium tracking-wide text-bgColor shadow-editorial transition-all duration-200 ease-out hover:bg-accent-two/90 hover:shadow-editorial-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-one/40 active:scale-[0.98];
+		@apply industrial-btn-fill;
 	}
-
 	.editorial-btn-ghost {
-		@apply inline-flex items-center justify-center rounded-sm border border-color-200 bg-transparent px-4 py-2 font-medium tracking-wide text-accent-base transition-all duration-200 ease-out hover:border-accent-one/40 hover:bg-color-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-one/30 active:scale-[0.98];
+		@apply industrial-btn-ghost;
 	}
-
 	.editorial-card {
-		@apply rounded-sm border border-color-150 bg-special-lighter shadow-editorial transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-color-200 hover:shadow-editorial-lg;
+		@apply industrial-card;
 	}
-
 	.editorial-input {
-		@apply mt-1 block w-full rounded-sm border border-color-200 bg-special-lighter px-3 py-2.5 text-textColor shadow-editorial-inset transition-all duration-200 ease-out placeholder:text-lighter focus:border-accent-one/50 focus:outline-none focus:ring-2 focus:ring-accent-one/20;
+		@apply industrial-input;
 	}
-
 	.editorial-gradient-orb {
-		@apply rounded-full opacity-[0.18] dark:opacity-[0.06];
+		@apply industrial-gradient-orb;
 	}
-
 	.animate-editorial-reveal {
-		animation: editorial-reveal 0.6s ease-out forwards;
+		@apply animate-industrial-hero;
 	}
 }

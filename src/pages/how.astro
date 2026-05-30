@@ -1,69 +1,98 @@
 ---
+import IndustrialCta from "@/components/industrial/IndustrialCta.astro";
+import SectionBlock from "@/components/industrial/SectionBlock.astro";
+import SplitPageLayout from "@/components/industrial/SplitPageLayout.astro";
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-    description: "Why Sikhs Must Be Prepared - Understanding Our Sacred Duty",
-    title: "Why - Sacred Duty",
+	description: "Why Sikhs Must Be Prepared - Understanding Our Sacred Duty",
+	title: "Why - Sacred Duty",
 };
 ---
 
 <PageLayout meta={meta}>
-      <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-4">Modern Weapons, Modern Responsibilities</h2>
-            
-            <p class="text-lg mb-4">
-                Just as our ancestors maintained the most effective weapons of their time, today's Sikhs have a duty to be properly equipped with modern defensive tools. Modern rifles and handguns should be respected and understood, not feared. They are extensions of our tradition of preparedness and protection.
-            </p>
+	<SplitPageLayout
+		sectionNumber="02"
+		sectionLabel="Systems"
+		title="Modern Weapons, Modern Responsibilities"
+		subtitle="Contemporary platforms. Ancestral discipline. Unchanged principles."
+	>
+		<SectionBlock number="01" visualSrc="/assets/images/industrial/hero-rifle.jpg" visualAlt="Modern tactical platform">
+			<p class="text-lg mb-4">
+				Just as our ancestors maintained the most effective weapons of their time, today's Sikhs have a duty to be
+				properly equipped with modern defensive tools. Modern rifles and handguns should be respected and understood,
+				not feared. They are extensions of our tradition of preparedness and protection.
+			</p>
 
-            <p class="text-lg mb-4">
-                History has shown that evil does not rest, and the only way to prevent suffering at the hands of tyrants is to maintain the highest level of defensive capability legally permitted. This includes modern sporting rifles and similar platforms - if those who wish harm can access such tools, it is our duty to be equally prepared to defend the innocent.
-            </p>
+			<p class="text-lg mb-4">
+				History has shown that evil does not rest, and the only way to prevent suffering at the hands of tyrants is to
+				maintain the highest level of defensive capability legally permitted. This includes modern sporting rifles and
+				similar platforms - if those who wish harm can access such tools, it is our duty to be equally prepared to
+				defend the innocent.
+			</p>
 
-            <p class="text-lg mb-4">
-                Remember that Guru Gobind Singh Ji equipped the Khalsa with the most advanced arms available in their time. Today, we honor that tradition by maintaining proficiency with modern defensive tools while upholding the same principles of restraint, discipline, and righteousness.
-            </p>
-        </div>
+			<p class="text-lg mb-4">
+				Remember that Guru Gobind Singh Ji equipped the Khalsa with the most advanced arms available in their time.
+				Today, we honor that tradition by maintaining proficiency with modern defensive tools while upholding the same
+				principles of restraint, discipline, and righteousness.
+			</p>
+		</SectionBlock>
 
-        <img 
-            src="/assets/images/Shaastar.png" 
-            alt="Traditional Sikh Martial Arts" 
-            class="editorial-card mx-auto mb-8 block w-full max-w-[600px] p-1"
-        />
-        
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-4">Embracing Modern Arms</h2>
-            <p class="text-lg mb-4">
-                Modern firearms, including rifles and handguns, should be viewed as tools of liberation and protection, not instruments of fear. They represent our continued commitment to defending dharma in an evolving world. Just as our ancestors mastered the weapons of their time, we must embrace and understand contemporary defensive tools.
-            </p>
-        </div>
+		<SectionBlock number="02">
+			<img
+				src="/assets/images/Shaastar.png"
+				alt="Traditional Sikh Martial Arts"
+				class="industrial-card mx-auto mb-8 block w-full max-w-[600px] p-1"
+			/>
 
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-4">Defending Our Rights</h2>
-            <p class="text-lg mb-4">
-                In the United States, the Second Amendment enshrines the fundamental right to bear arms - a right that aligns perfectly with Sikh principles of self-defense and community protection. We must actively support and defend this constitutional right, understanding that an armed and trained citizenry is the best safeguard against tyranny and oppression.
-            </p>
+			<h2 class="text-2xl font-bold mb-4">Embracing Modern Arms</h2>
+			<p class="text-lg mb-4">
+				Modern firearms, including rifles and handguns, should be viewed as tools of liberation and protection, not
+				instruments of fear. They represent our continued commitment to defending dharma in an evolving world. Just as
+				our ancestors mastered the weapons of their time, we must embrace and understand contemporary defensive tools.
+			</p>
+		</SectionBlock>
 
-            <p class="text-lg mb-4">
-                For Sikhs worldwide, we must advocate for similar liberties in other nations. The right to armed self-defense is not just an American principle - it is a human right that the Khalsa has defended for centuries. Whether in India, Canada, or Europe, Sikhs should work within legal frameworks to preserve and expand the rights of responsible citizens to own and train with defensive weapons.
-            </p>
-        </div>
+		<SectionBlock number="03" visualSrc="/assets/images/industrial/section-optics.jpg" visualAlt="Precision optics and engineering">
+			<h2 class="text-2xl font-bold mb-4">Defending Our Rights</h2>
+			<p class="text-lg mb-4">
+				In the United States, the Second Amendment enshrines the fundamental right to bear arms - a right that
+				aligns perfectly with Sikh principles of self-defense and community protection. We must actively support and
+				defend this constitutional right, understanding that an armed and trained citizenry is the best safeguard
+				against tyranny and oppression.
+			</p>
 
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-4">Maximum Preparedness</h2>
-            <p class="text-lg mb-4">
-                History has repeatedly shown that evil persists, and the only effective deterrent is maintaining the highest level of defensive capability within legal bounds. This includes modern sporting rifles and similar platforms - when those who intend harm have access to such tools, we have a sacred duty to be equally prepared to protect the innocent.
-            </p>
-            <p class="text-lg mb-4">
-                Our tradition demands we remain properly equipped and trained with the most effective defensive tools available. This preparedness serves as both deterrent and protection, upholding our historical responsibility as guardians of righteousness.
-            </p>
-        </div>
+			<p class="text-lg mb-4">
+				For Sikhs worldwide, we must advocate for similar liberties in other nations. The right to armed self-defense
+				is not just an American principle - it is a human right that the Khalsa has defended for centuries. Whether in
+				India, Canada, or Europe, Sikhs should work within legal frameworks to preserve and expand the rights of
+				responsible citizens to own and train with defensive weapons.
+			</p>
+		</SectionBlock>
 
-        <blockquote class="editorial-card border-l-2 border-accent-one py-4 pl-6 pr-4 italic">
-            "ਸਵਾ ਲਾਖ ਸੇ ਏਕ ਲੜਾਊਂ"
-            <br/>
-            <span class="text-sm mt-2 block">
-                "I will make one fight against 125,000" - Guru Gobind Singh Ji
-            </span>
-        </blockquote>
-    </div>
+		<SectionBlock number="04" visualSrc="/assets/images/industrial/section-precision.jpg" visualAlt="Industrial manufacturing precision">
+			<h2 class="text-2xl font-bold mb-4">Maximum Preparedness</h2>
+			<p class="text-lg mb-4">
+				History has repeatedly shown that evil persists, and the only effective deterrent is maintaining the highest
+				level of defensive capability within legal bounds. This includes modern sporting rifles and similar platforms
+				- when those who intend harm have access to such tools, we have a sacred duty to be equally prepared to
+				protect the innocent.
+			</p>
+			<p class="text-lg mb-4">
+				Our tradition demands we remain properly equipped and trained with the most effective defensive tools available.
+				This preparedness serves as both deterrent and protection, upholding our historical responsibility as guardians
+				of righteousness.
+			</p>
+
+			<blockquote class="industrial-card border-l border-color-300 py-4 pl-6 pr-4 italic">
+				"ਸਵਾ ਲਾਖ ਸੇ ਏਕ ਲੜਾਊਂ"
+				<br />
+				<span class="text-sm mt-2 block">
+					"I will make one fight against 125,000" - Guru Gobind Singh Ji
+				</span>
+			</blockquote>
+
+			<IndustrialCta href="/contact" label="Connect" />
+		</SectionBlock>
+	</SplitPageLayout>
 </PageLayout>

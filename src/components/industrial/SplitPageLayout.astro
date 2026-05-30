@@ -1,0 +1,41 @@
+---
+interface Props {
+	sectionLabel?: string;
+	sectionNumber?: string;
+	title: string;
+	subtitle?: string;
+}
+
+const { sectionLabel, sectionNumber, title, subtitle } = Astro.props;
+---
+
+<div class="grid gap-16 py-24 lg:grid-cols-12 lg:gap-20 lg:py-40">
+	<aside
+		class="lg:col-span-4 lg:sticky lg:top-28 lg:self-start"
+		data-reveal
+	>
+		{
+			sectionNumber && (
+				<p class="mb-6 font-mono text-xs uppercase tracking-[0.35em] text-lighter">
+					{sectionNumber}
+					{sectionLabel && <span class="text-color-400"> / {sectionLabel}</span>}
+				</p>
+			)
+		}
+		<h1 class="font-display text-4xl font-semibold leading-[0.95] tracking-tighter text-accent-base md:text-5xl lg:text-6xl">
+			{title}
+		</h1>
+		{
+			subtitle && (
+				<p class="mt-6 max-w-sm font-mono text-sm leading-relaxed tracking-wide text-lighter">
+					{subtitle}
+				</p>
+			)
+		}
+		<div class="mt-10 hidden h-px w-full max-w-xs bg-color-200 lg:block"></div>
+		<slot name="aside" />
+	</aside>
+	<div class="lg:col-span-8">
+		<slot />
+	</div>
+</div>

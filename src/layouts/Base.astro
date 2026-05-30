@@ -17,39 +17,65 @@ const {
 ---
 
 <html
-	class="overflow-x-hidden grid scroll-pt-20 scroll-smooth font-sans text-textColor text-xl md:text-base antialiased selection:bg-accent-one/25 selection:text-accent-base"
+	class="overflow-x-hidden grid scroll-pt-24 scroll-smooth font-sans text-textColor text-xl md:text-base antialiased selection:bg-color-200/40 selection:text-accent-base"
 	lang={siteConfig.lang}
 >
 	<head>
 		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
 	</head>
-	<body class="min-w-4xl relative m-auto min-h-screen w-full max-w-6xl grow bg-bgColor text-textColor">
+	<body class="relative m-auto min-h-screen w-full min-w-4xl max-w-[90rem] grow bg-bgColor text-textColor">
 		<ThemeProvider />
 		<SkipLink />
 
-		<!-- Background 
-			TODO: This approach is not optimal and requires improvements. 
-  			- Too many absolutely positioned elements can affect performance. 
-  		-->	
-		<div class="fixed top-0 left-1/2 -ml-[50vw] min-h-screen w-screen pointer-events-none blur-3xl" aria-hidden="true">
-			<div class="editorial-gradient-orb absolute top-[-85%] right-[20%] h-full w-[70%] bg-gradient-to-b from-amber-200/80 via-stone-300/40 to-transparent"></div>
-			<div class="editorial-gradient-orb absolute top-[-80%] left-[15%] h-full w-[60%] bg-gradient-to-b from-stone-400/50 via-amber-100/30 to-transparent"></div>
-			<div class="editorial-gradient-orb absolute top-[-70%] left-[-20%] h-full w-[55%] bg-gradient-to-b from-amber-300/40 to-transparent opacity-80"></div>
+		<div class="pointer-events-none fixed top-0 left-1/2 -ml-[50vw] min-h-screen w-screen" aria-hidden="true">
+			<div
+				class="industrial-gradient-orb absolute top-[-70%] right-[5%] h-[120%] w-[55%] bg-gradient-to-b from-color-150/80 via-transparent to-transparent"
+			>
+			</div>
+			<div
+				class="industrial-gradient-orb absolute top-[-65%] left-[0%] h-[110%] w-[45%] bg-gradient-to-tr from-color-100/60 via-transparent to-transparent"
+			>
+			</div>
+			<div class="industrial-metal-sheen absolute inset-0"></div>
 		</div>
-	
+
 		<div class="relative flex min-h-screen w-full">
-			<!-- Sidebar for Docs Series -->
 			<slot name="sidebar" />
-			<!-- Main container for the page content -->
-			<div id="container" class="min-w-3xl relative m-auto max-w-4xl grow">
-				<div class="m-auto grid min-h-screen md:grid-rows-[auto_auto_1fr] px-5 md:px-10 md:pt-6">
+			<div id="container" class="relative m-auto w-full max-w-[88rem] grow px-5 md:px-12 lg:px-16">
+				<div class="m-auto grid min-h-screen md:grid-rows-[auto_auto_1fr] md:pt-4">
 					<Header />
-					<main id="main" class="relative flex-grow mt-32 md:mt-[3.75rem]">
+					<main id="main" class="relative flex-grow pt-28 md:pt-20">
 						<slot />
 					</main>
 					<Footer />
 				</div>
 			</div>
 		</div>
+
+		<script is:inline>
+			(() => {
+				const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+				if (reduceMotion) {
+					document.querySelectorAll("[data-reveal]").forEach((el) => el.classList.add("is-visible"));
+					return;
+				}
+				const observer = new IntersectionObserver(
+					(entries) => {
+						for (const entry of entries) {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("is-visible");
+								observer.unobserve(entry.target);
+							}
+						}
+					},
+					{ rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+				);
+				const observe = () => {
+					document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach((el) => observer.observe(el));
+				};
+				observe();
+				document.addEventListener("astro:page-load", observe);
+			})();
+		</script>
 	</body>
 </html>

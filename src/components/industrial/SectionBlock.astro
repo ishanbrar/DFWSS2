@@ -1,0 +1,36 @@
+---
+interface Props {
+	number: string;
+	visualSrc?: string;
+	visualAlt?: string;
+	class?: string;
+}
+
+const { number, visualSrc, visualAlt = "", class: className = "" } = Astro.props;
+---
+
+<section class={`border-t border-color-150/80 py-20 first:border-t-0 first:pt-0 lg:py-28 ${className}`} data-reveal>
+	<div class="mb-10 flex items-end justify-between gap-8">
+		<p class="font-mono text-5xl font-light leading-none tracking-tighter text-color-200 md:text-7xl lg:text-8xl">
+			{number}
+		</p>
+		<div class="hidden h-px flex-1 bg-color-150 md:block" aria-hidden="true"></div>
+	</div>
+	{
+		visualSrc && (
+			<div class="industrial-visual-frame group relative mb-12 aspect-[16/9] max-h-[22rem] overflow-hidden rounded-sm">
+				<img
+					src={visualSrc}
+					alt={visualAlt}
+					class="h-full w-full object-cover object-center mix-blend-luminosity opacity-50 transition-all duration-300 ease-out group-hover:opacity-75"
+					loading="lazy"
+					decoding="async"
+				/>
+				<div class="absolute inset-0 bg-gradient-to-t from-bgColor/80 via-transparent to-transparent"></div>
+			</div>
+		)
+	}
+	<div class="prose prose-citrus max-w-none">
+		<slot />
+	</div>
+</section>

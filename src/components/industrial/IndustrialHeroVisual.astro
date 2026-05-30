@@ -1,0 +1,27 @@
+---
+interface Props {
+	src: string;
+	alt: string;
+	class?: string;
+}
+
+const { src, alt, class: className = "" } = Astro.props;
+---
+
+<div class={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden="true">
+	<img
+		src={src}
+		alt=""
+		class="absolute inset-0 h-full w-full object-cover object-center mix-blend-luminosity opacity-40 transition-opacity duration-700 ease-out group-hover:opacity-70 dark:opacity-30 dark:group-hover:opacity-55"
+		loading="eager"
+		decoding="async"
+	/>
+	<div
+		class="absolute inset-0 bg-gradient-to-br from-bgColor/85 via-bgColor/70 to-bgColor/90 dark:from-bgColor/92 dark:via-bgColor/80 dark:to-bgColor/95"
+	>
+	</div>
+	<div
+		class="industrial-satin absolute inset-0 opacity-60 mix-blend-overlay dark:opacity-40"
+	>
+	</div>
+</div>

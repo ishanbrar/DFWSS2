@@ -1,39 +1,51 @@
 ---
+import SectionBlock from "@/components/industrial/SectionBlock.astro";
+import SplitPageLayout from "@/components/industrial/SplitPageLayout.astro";
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-    description: "Why Sikhs Should Practice Shastar Vidya in Modern Times",
-    title: "About - Tyar Bar Tyar",
+	description: "Why Sikhs Should Practice Shastar Vidya in Modern Times",
+	title: "About - Tyar Bar Tyar",
 };
 ---
 
 <PageLayout meta={meta}>
-    <div class="prose prose-citrus max-w-none">
-        <h1 class="title mb-6">About DFW SS</h1>
-        
-              <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-4">Who Are We?</h2>
-            
-            <p class="text-lg mb-4">
-                We are a collective of like-minded Singhs and Kaurs from across the Dallas-Fort Worth metroplex, united by our dedication to maintaining the Khalsa's martial traditions through modern weapons training. While we attend different Gurdwaras throughout DFW, we come together regularly to train, learn, and grow in our understanding of both traditional Shastar Vidya and contemporary defensive tools.
-            </p>
+	<SplitPageLayout
+		sectionNumber="03"
+		sectionLabel="Collective"
+		title="About DFW SS"
+		subtitle="DFW metroplex — Khalsa martial tradition through modern training."
+	>
+		<SectionBlock number="01" visualSrc="/assets/images/industrial/section-tactical.jpg" visualAlt="Technical equipment — industrial aesthetic">
+			<h2 class="text-2xl font-bold mb-4">Who Are We?</h2>
 
-            <p class="text-lg mb-6">
-                Our members range from experienced marksmen to beginners, but we all share a common understanding: that the responsibility to be armed and trained is inseparable from our Sikhi. We organize regular training sessions, workshops, and educational events focused on responsible firearm ownership, tactical training, and the spiritual aspects of being a warrior-saint in today's world.
-            </p>
-        </div>
-    
+			<p class="text-lg mb-4">
+				We are a collective of like-minded Singhs and Kaurs from across the Dallas-Fort Worth metroplex, united by our
+				dedication to maintaining the Khalsa's martial traditions through modern weapons training. While we attend
+				different Gurdwaras throughout DFW, we come together regularly to train, learn, and grow in our understanding of
+				both traditional Shastar Vidya and contemporary defensive tools.
+			</p>
 
-           <blockquote class="editorial-card my-8 border-l-2 border-accent-one py-4 pl-6 pr-4 italic">
-            "ਮਨ ਹੀ ਸੈਨਾ ਮਨ ਹੀ ਰਾਜਾ ॥"
-            <br/>
-            <span class="text-sm mt-2 block">
-                "The mind is the army, and the mind is the ruler." - Sri Guru Granth Sahib Ji (Ang 339)
-            </span>
-        </blockquote>
+			<p class="text-lg mb-6">
+				Our members range from experienced marksmen to beginners, but we all share a common understanding: that the
+				responsibility to be armed and trained is inseparable from our Sikhi. We organize regular training sessions,
+				workshops, and educational events focused on responsible firearm ownership, tactical training, and the spiritual
+				aspects of being a warrior-saint in today's world.
+			</p>
+		</SectionBlock>
 
-        <p class="text-lg mt-6">
-            Join us in maintaining the warrior-saint tradition of the Khalsa through modern weapons training and education.
-        </p>
-    </div>
+		<SectionBlock number="02">
+			<blockquote class="industrial-card my-8 border-l border-color-300 py-4 pl-6 pr-4 italic">
+				"ਮਨ ਹੀ ਸੈਨਾ ਮਨ ਹੀ ਰਾਜਾ ॥"
+				<br />
+				<span class="text-sm mt-2 block">
+					"The mind is the army, and the mind is the ruler." - Sri Guru Granth Sahib Ji (Ang 339)
+				</span>
+			</blockquote>
+
+			<p class="text-lg mt-6">
+				Join us in maintaining the warrior-saint tradition of the Khalsa through modern weapons training and education.
+			</p>
+		</SectionBlock>
+	</SplitPageLayout>
 </PageLayout>

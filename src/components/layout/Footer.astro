@@ -5,19 +5,22 @@ const year = new Date().getFullYear();
 ---
 
 <footer
-	class="mt-auto flex w-full flex-col items-center justify-center gap-y-3 border-t border-color-150 pb-6 pt-10 text-center align-top text-sm tracking-wide text-lighter sm:flex-row sm:justify-between"
+	class="mt-auto flex w-full flex-col items-center justify-center gap-y-6 border-t border-color-150/80 pb-8 pt-16 text-center align-top text-sm tracking-wide text-lighter sm:flex-row sm:justify-between"
 >
-	<div class="me-0 font-medium text-accent-base sm:me-4">
+	<div class="me-0 font-mono text-xs uppercase tracking-[0.2em] text-accent-base sm:me-4">
 		&copy; {siteConfig.author}
 		{year}.<span class="inline-block">&nbsp;🚀&nbsp;DFW Sikh Shooters</span>
 	</div>
 	<nav
 		aria-label="More on this site"
-		class="flex w-auto justify-between space-x-6 font-medium text-light md:w-[14rem]"
+		class="flex w-auto justify-between gap-x-8 font-mono text-xs uppercase tracking-[0.15em] text-light md:w-auto"
 	>
 		{
 			menuLinks.map((link) => (
-				<a class="underline-offset-4 transition-all duration-200 ease-out hover:text-accent-one hover:underline decoration-accent-one/30" href={link.path}>
+				<a
+					class="underline-offset-4 transition-all duration-300 ease-out hover:text-accent-one hover:underline decoration-color-300"
+					href={link.path}
+				>
 					{link.title}
 				</a>
 			))
